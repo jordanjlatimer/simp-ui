@@ -1,6 +1,6 @@
 {
   "name": "simp-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple React UI with minimal dependencies.",
   "main": "index.js",
   "scripts": {
