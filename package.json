@@ -1,0 +1,25 @@
+{
+  "name": "simp-ui",
+  "version": "1.0.0",
+  "description": "A simple React UI with minimal dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanjlatimer/simp-ui.git"
+  },
+  "author": "jordanjlatimer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordanjlatimer/simp-ui/issues"
+  },
+  "homepage": "https://github.com/jordanjlatimer/simp-ui#readme",
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-icons": "^3.11.0"
+  },
+  "type": "module"
+}
