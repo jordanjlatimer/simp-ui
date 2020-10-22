@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react"
 import DropdownValue from "./DropdownValue"
 import { FaAngleDown } from 'react-icons/fa';
+import PropTypes from "prop-types"
 
 const DropdownControl = forwardRef((props, ref) => {
   return(
@@ -30,5 +31,14 @@ const DropdownControl = forwardRef((props, ref) => {
 })
 
 DropdownControl.displayName = "DropdownControl"
+
+DropdownControl.propTypes = {
+  open: PropTypes.bool,
+  value: PropTypes.string,
+  callback: PropTypes.func,
+  multiple: PropTypes.bool,
+  over: PropTypes.bool,
+  placeholder: PropTypes.string
+}
 
 export default DropdownControl

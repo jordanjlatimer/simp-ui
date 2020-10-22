@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from "prop-types"
 
-export default function DatepickerControl(props){
+function DatepickerControl(props){
   return(
     <p 
       className={"datepicker-control" + (props.selected ? " selected" : "")}
@@ -11,3 +12,13 @@ export default function DatepickerControl(props){
     </p>
   )
 }
+
+DatepickerControl.displayName = "DatepickerControl"
+
+DatepickerControl.propTypes = {
+  selected: PropTypes.bool,
+  onClick: PropTypes.func,
+  value: PropTypes.string
+}
+
+export default DatepickerControl

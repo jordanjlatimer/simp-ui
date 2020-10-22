@@ -1,22 +1,34 @@
-// styles
-import './styles/base.css';
-
 // content
-export { Accordion } from "./Content/Accordion";
-export { Table } from "./Content/Table";
+import Accordion from "./Content/Accordion/Accordion.js";
+import Table from "./Content/Table/Table.js";
 
 // form
-export { Datepicker } from "./Form/Datepicker/Datepicker";
-export { Dropdown } from "./Form/Dropdown/Dropdown";
-export { Input } from "./Form/Input/Input";
-export { Checkbox } from "./Form/Checkbox";
-export { RadioInput } from "./Form/RadioInput";
-export { RangeInput } from "./Form/RangeInput";
+import Datepicker from "./Form/Datepicker/Datepicker.js";
+import Dropdown from "./Form/Dropdown/Dropdown.js";
+import Input from "./Form/Input/Input.js";
+import Checkbox from "./Form/Checkbox/Checkbox.js";
+import RadioInput from "./Form/RadioInput/RadioInput.js";
+import RangeInput from "./Form/RangeInput/RangeInput.js";
 
 // interaction
-export { Button } from "./Interaction/Button";
-export { Drawer } from "./Interaction/Drawer";
-export { Modal } from "./Interaction/Modal";
+import Button from "./Interaction/Button/Button.js";
+import Drawer from "./Interaction/Drawer/Drawer.js";
+import Modal from "./Interaction/Modal/Modal.js";
 
 // layout
-export { Container } from "./Layout/Container"
+import Container from "./Layout/Container/Container.js"
+
+export {
+  Accordion,
+  Table,
+  Datepicker,
+  Dropdown,
+  Input,
+  Checkbox,
+  RadioInput,
+  RangeInput,
+  Button,
+  Drawer,
+  Modal,
+  Container
+}

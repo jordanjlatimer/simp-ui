@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import DatepickerControl from './DatepickerControl';
-import DatepickerSelection from './DatepickerSelection';
+import DatepickerSelection from './DatepickerPicker';
+import "./datepicker.sass"
+import PropTypes from "prop-types"
 
-export function Datepicker(props){
+function Datepicker(props){
   const [open, setOpen] = useState(false)
   const [day, setDay] = useState(null)
   const [month, setMonth] = useState(new Date().getMonth())
@@ -51,3 +53,12 @@ export function Datepicker(props){
     </div>
   )
 }
+
+Datepicker.displayName = "Datepicker"
+
+Datepicker.propTypes = {
+  label: PropTypes.string,
+  placeholder: PropTypes.string
+}
+
+export default Datepicker

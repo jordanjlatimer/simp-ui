@@ -1,6 +1,7 @@
 import React from "react"
+import PropTypes from "prop-types"
 
-export default function DatepickerPickerDay(props){
+function DatepickerPickerDay(props){
   return(
     props.onClick ?
       <div 
@@ -12,3 +13,13 @@ export default function DatepickerPickerDay(props){
       : <div className="datepicker-picker-days-day"/>
   )
 }
+
+DatepickerPickerDay.displayName = "DatepickerPickerDay"
+
+DatepickerPickerDay.propTypes = {
+  onClick: PropTypes.func,
+  active: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+}
+
+export default DatepickerPickerDay

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types"
 
 const DropdownMenu = React.forwardRef((props, ref) => {
   return(
@@ -9,5 +10,10 @@ const DropdownMenu = React.forwardRef((props, ref) => {
 })
 
 DropdownMenu.displayName = "DropdownMenu"
+
+DropdownMenu.propTypes = {
+  open: PropTypes.bool,
+  children: PropTypes.node
+}
 
 export default DropdownMenu

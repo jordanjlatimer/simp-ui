@@ -1,8 +1,10 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import InputControl from './InputControl';
 import InputLabel from './InputLabel';
+import "./input.sass"
+import PropTypes from "prop-types"
 
-export function Input(props){
+function Input(props){
   const [value, setValue] = useState(props.initialValue ? props.initialValue : "")
   const [invalid, setInvalid] = useState(false)
   const [invMessage, setInvMessage] = useState("");
@@ -74,3 +76,20 @@ export function Input(props){
 
   )
 }
+
+Input.displayName = "Input";
+
+Input.propTypes = {
+  initialValue: PropTypes.string,
+  changeValidation: PropTypes.func,
+  onChange: PropTypes.func,
+  valueValidation: PropTypes.func,
+  label: PropTypes.string,
+  valueDisplay: PropTypes.func,
+  password: PropTypes.bool,
+  placeholder: PropTypes.string,
+  prefix: PropTypes.string,
+  suffix: PropTypes.string
+}
+
+export default Input

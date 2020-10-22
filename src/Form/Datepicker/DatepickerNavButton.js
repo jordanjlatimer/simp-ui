@@ -1,7 +1,8 @@
 import React from "react"
 import { FaAngleDoubleLeft, FaAngleDoubleRight, FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import PropTypes from "prop-types"
 
-export default function DatepickerNavButton(props){
+function DatepickerNavButton(props){
   return(
     props.interval === "year" ?
       props.direction === "back" ?
@@ -12,3 +13,13 @@ export default function DatepickerNavButton(props){
         : <FaAngleRight onClick={props.onClick}/>
   )
 }
+
+DatepickerNavButton.displayName = "DatepickerNavButton"
+
+DatepickerNavButton.propTypes = {
+  interval: PropTypes.string,
+  direction: PropTypes.string,
+  onClick: PropTypes.func
+}
+
+export default DatepickerNavButton

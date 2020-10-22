@@ -2,8 +2,10 @@ import React, {useState, useEffect, useRef, useLayoutEffect} from 'react';
 import DropdownControl from './DropdownControl';
 import DropdownItem from './DropdownItem';
 import DropdownMenu from './DropdownMenu';
+import "./dropdown.sass"
+import PropTypes from "prop-types"
 
-export function Dropdown(props){
+function Dropdown(props){
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState([])
   const [over, setOver] = useState(false)
@@ -64,3 +66,14 @@ export function Dropdown(props){
 
   )
 }
+
+Dropdown.displayName = "Dropdown";
+
+Dropdown.propTypes = {
+  label: PropTypes.string,
+  multiple: PropTypes.bool,
+  placeholder: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.object)
+}
+
+export default Dropdown

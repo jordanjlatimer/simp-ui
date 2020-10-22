@@ -1,7 +1,8 @@
 import React from 'react'
 import DatepickerNavButton from './DatepickerNavButton';
+import PropTypes from "prop-types"
 
-export default function DatepickerSelectionNavigation(props){
+function DatepickerPickerNavbar(props){
   return(
     <div className="datepicker-picker-navbar">
       <DatepickerNavButton interval="year" direction="back" onClick={props.functions.yearBack}/>
@@ -18,3 +19,14 @@ export default function DatepickerSelectionNavigation(props){
     </div>
   )
 }
+
+DatepickerPickerNavbar.displayName = "DatepickerPickerNavbar"
+
+DatepickerPickerNavbar.propTypes = {
+  functions: PropTypes.objectOf(PropTypes.func),
+  day: PropTypes.number,
+  month: PropTypes.number,
+  year: PropTypes.number
+}
+
+export default DatepickerPickerNavbar

@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import PropTypes from "prop-types"
 
 const InputControl = forwardRef((props, ref) => {
   return(
@@ -16,5 +17,16 @@ const InputControl = forwardRef((props, ref) => {
 })
 
 InputControl.displayName = "InputControl"
+
+InputControl.propTypes = {
+  invalid: PropTypes.bool,
+  onBlur: PropTypes.func,
+  value: PropTypes.string,
+  onFocus: PropTypes.func,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+  password: PropTypes.bool
+}
 
 export default InputControl
