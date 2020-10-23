@@ -1,10 +1,18 @@
-const path = require('path');
-const pkg = require('./package.json');
+const path = require("path");
+const { icons } = require("react-icons");
+const pkg = require("./package.json");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
+  output: {
+    libraryTarget: "umd"
+  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader"
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -28,5 +36,10 @@ module.exports = {
   },
   optimization: {
     minimize: true
+  },
+  externals: {
+    react: "react",
+    "react-icons": "react-icons",
+    "prop-types": "prop-types"
   }
 };
