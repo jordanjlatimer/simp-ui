@@ -3,10 +3,10 @@ import "./radio-input.sass";
 
 type RadioInputProps = {
   label: string;
-  segmented: boolean;
-  horizontal: boolean;
+  segmented?: boolean;
+  horizontal?: boolean;
   options: { label: string; value: string }[];
-  optionLabels: "left" | "right";
+  optionLabels?: "left" | "right";
 };
 
 const RadioInput: React.FC<RadioInputProps> = ({
@@ -46,9 +46,7 @@ const RadioInput: React.FC<RadioInputProps> = ({
               onClick={() => setSelected(index)}
               tabIndex={0}
             >
-              {optionLabels === "left" ? (
-                <p className="radio-input-option-label left">{option.label}</p>
-              ) : null}
+              {optionLabels === "left" ? <p className="radio-input-option-label left">{option.label}</p> : null}
               <div className="radio-input-box-outer">
                 <div
                   className={
@@ -57,9 +55,7 @@ const RadioInput: React.FC<RadioInputProps> = ({
                   }
                 />
               </div>
-              {optionLabels === "left" ? null : (
-                <p className="radio-input-option-label right">{option.label}</p>
-              )}
+              {optionLabels === "right" ? <p className="radio-input-option-label right">{option.label}</p> : null}
             </div>
           );
         })}
@@ -70,4 +66,4 @@ const RadioInput: React.FC<RadioInputProps> = ({
 
 RadioInput.displayName = "RadioInput";
 
-export default RadioInput;
+export { RadioInput };

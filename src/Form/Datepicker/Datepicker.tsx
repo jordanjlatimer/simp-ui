@@ -144,4 +144,4 @@ const Datepicker: React.FC<DatepickerProps> = ({
 
 Datepicker.displayName = "Datepicker";
 
-export default Datepicker;
+export { Datepicker };

@@ -31,4 +31,4 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
 Checkbox.displayName = "Checkbox";
 
-export default Checkbox;
+export { Checkbox };

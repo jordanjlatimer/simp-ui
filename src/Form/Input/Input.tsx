@@ -117,4 +117,4 @@ const Input: React.FC<InputProps> = ({
 
 Input.displayName = "Input";
 
-export default Input;
+export { Input };

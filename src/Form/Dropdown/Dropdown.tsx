@@ -123,4 +123,4 @@ const Dropdown: React.FC<DropdownProps> = ({
 
 Dropdown.displayName = "Dropdown";
 
-export default Dropdown;
+export { Dropdown };
