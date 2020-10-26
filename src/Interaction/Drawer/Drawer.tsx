@@ -8,24 +8,24 @@ import {
 import "./drawer.sass";
 
 type DrawerProps = {
-  open: boolean,
-  position?: "top" | "bottom" | "right" | "left",
-  callback: () => void,
-  children: React.ReactNode
-}
+  open: boolean;
+  position?: "top" | "bottom" | "right" | "left";
+  callback: () => void;
+  children: React.ReactNode;
+};
 
 const positionIcons = {
   top: <FaAngleUp />,
   right: <FaAngleRight />,
   bottom: <FaAngleDown />,
-  left: <FaAngleLeft />
-}
+  left: <FaAngleLeft />,
+};
 
 const Drawer: React.FC<DrawerProps> = ({
   open,
   position = "left",
   callback,
-  children
+  children,
 }: DrawerProps) => {
   return (
     <div className={"drawer" + (open ? " open" : "") + (" " + position)}>
@@ -38,7 +38,7 @@ const Drawer: React.FC<DrawerProps> = ({
       {children}
     </div>
   );
-}
+};
 
 Drawer.displayName = "Drawer";
 

@@ -2,18 +2,18 @@ import * as React from "react";
 import "./container.sass";
 
 type ContainerProps = {
-  raised?: boolean,
-  bordered?: boolean,
-  margined?: boolean,
-  clickable?: boolean,
-  stretchX?: boolean,
-  flex?: boolean,
-  padded?: boolean,
-  children?: React.ReactNode,
-  column?: boolean,
-  header?: string,
-  inverted?: boolean,
-}
+  raised?: boolean;
+  bordered?: boolean;
+  margined?: boolean;
+  clickable?: boolean;
+  stretchX?: boolean;
+  flex?: boolean;
+  padded?: boolean;
+  children?: React.ReactNode;
+  column?: boolean;
+  header?: string;
+  inverted?: boolean;
+};
 
 const Container: React.FC<ContainerProps> = ({
   raised,
@@ -26,7 +26,7 @@ const Container: React.FC<ContainerProps> = ({
   children,
   column,
   header,
-  inverted
+  inverted,
 }: ContainerProps) => {
   return (
     <div
@@ -40,9 +40,7 @@ const Container: React.FC<ContainerProps> = ({
       }
     >
       {header ? (
-        <h1
-          className={"container-header" + (inverted ? " inverted" : "")}
-        >
+        <h1 className={"container-header" + (inverted ? " inverted" : "")}>
           {header}
         </h1>
       ) : null}
@@ -58,7 +56,7 @@ const Container: React.FC<ContainerProps> = ({
       </div>
     </div>
   );
-}
+};
 
 Container.displayName = "Container";
 

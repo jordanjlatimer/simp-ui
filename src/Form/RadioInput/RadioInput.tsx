@@ -46,7 +46,9 @@ const RadioInput: React.FC<RadioInputProps> = ({
               onClick={() => setSelected(index)}
               tabIndex={0}
             >
-              {optionLabels === "left" ? <p className="radio-input-option-label left">{option.label}</p> : null}
+              {optionLabels === "left" ? (
+                <p className="radio-input-option-label left">{option.label}</p>
+              ) : null}
               <div className="radio-input-box-outer">
                 <div
                   className={
@@ -55,7 +57,9 @@ const RadioInput: React.FC<RadioInputProps> = ({
                   }
                 />
               </div>
-              {optionLabels === "right" ? <p className="radio-input-option-label right">{option.label}</p> : null}
+              {optionLabels === "right" ? (
+                <p className="radio-input-option-label right">{option.label}</p>
+              ) : null}
             </div>
           );
         })}

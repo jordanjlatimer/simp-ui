@@ -3,15 +3,15 @@ import { FaRegWindowClose } from "react-icons/fa";
 import "./modal.sass";
 
 type ModalProps = {
-  open: boolean,
-  callback: () => void,
-  children?: React.ReactNode,
-}
+  open: boolean;
+  callback: () => void;
+  children?: React.ReactNode;
+};
 
 const Modal: React.FC<ModalProps> = ({
   open,
   callback,
-  children
+  children,
 }: ModalProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({
       </div>
     </div>
   );
-}
+};
 
 Modal.displayName = "Modal";
 
