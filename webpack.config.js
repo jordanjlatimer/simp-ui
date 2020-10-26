@@ -5,13 +5,13 @@ const pkg = require("./package.json");
 module.exports = {
   mode: "development",
   output: {
-    libraryTarget: "umd"
+    libraryTarget: "umd",
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader"
+        loader: "ts-loader",
       },
       {
         test: /\.(js|jsx)$/,
@@ -19,27 +19,27 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
-          }
-        }
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader", 
+          "style-loader",
           "css-loader",
           "resolve-url-loader",
-          "sass-loader"
-        ]
-      }
-    ]
+          "sass-loader",
+        ],
+      },
+    ],
   },
   optimization: {
-    minimize: true
+    minimize: true,
   },
   externals: {
     react: "react",
     "react-icons": "react-icons",
-    "prop-types": "prop-types"
-  }
+    "prop-types": "prop-types",
+  },
 };

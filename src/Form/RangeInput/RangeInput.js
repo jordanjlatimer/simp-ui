@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
-import "./range-input.sass"
-import PropTypes from "prop-types"
+import React, { useState } from "react";
+import "./range-input.sass";
+import PropTypes from "prop-types";
 
-function RangeInput(props){
-  const [value, setValue] = useState(props.initial)
+function RangeInput(props) {
+  const [value, setValue] = useState(props.initial);
 
-  return(
+  return (
     <div className="range-input">
       <p className="range-input-label">{props.label}</p>
       <p className="range-input-value">
-        {props.prefix}{value}{props.suffix}
+        {props.prefix}
+        {value}
+        {props.suffix}
       </p>
-      <input 
-        className="range-input-slider" 
-        type="range" 
-        min={props.min} 
+      <input
+        className="range-input-slider"
+        type="range"
+        min={props.min}
         max={props.max}
         step={props.step}
         value={value}
-        onChange={e => setValue(e.target.value)}
-        />
+        onChange={(e) => setValue(e.target.value)}
+      />
     </div>
-  )
+  );
 }
 
 RangeInput.displayName = "RangeInput";
@@ -33,7 +35,7 @@ RangeInput.propTypes = {
   suffix: PropTypes.string,
   min: PropTypes.number,
   max: PropTypes.number,
-  step: PropTypes.number
-}
+  step: PropTypes.number,
+};
 
-export default RangeInput
+export default RangeInput;

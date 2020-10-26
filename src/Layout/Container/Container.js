@@ -1,31 +1,38 @@
-import React from 'react';
-import "./container.sass"
-import PropTypes from "prop-types"
+import React from "react";
+import "./container.sass";
+import PropTypes from "prop-types";
 
-function Container(props){
-  return(
-    <div 
+function Container(props) {
+  return (
+    <div
       className={
-        "container" + 
-        (props.raised ? " raised" : "") + 
-        (props.bordered ? " bordered" : "") + 
-        (props.margined ? " margined" : "") + 
+        "container" +
+        (props.raised ? " raised" : "") +
+        (props.bordered ? " bordered" : "") +
+        (props.margined ? " margined" : "") +
         (props.clickable ? " clickable" : "") +
         (props.stretchX ? " stretch-x" : "")
       }
     >
-      {props.header ? <h1 className={"container-header" + (props.inverted ? " inverted" : "")}>{props.header}</h1> : null}
-      <div className={
-        "container-contents" +
-        (props.flex ? " flex" : "") +
-        (props.column ? " column" : "") +
-        (props.padded ? " padded" : "")
-      }
+      {props.header ? (
+        <h1
+          className={"container-header" + (props.inverted ? " inverted" : "")}
+        >
+          {props.header}
+        </h1>
+      ) : null}
+      <div
+        className={
+          "container-contents" +
+          (props.flex ? " flex" : "") +
+          (props.column ? " column" : "") +
+          (props.padded ? " padded" : "")
+        }
       >
         {props.children}
       </div>
     </div>
-  )
+  );
 }
 
 Container.displayName = "Container";
@@ -41,7 +48,7 @@ Container.propTypes = {
   children: PropTypes.node,
   column: PropTypes.bool,
   header: PropTypes.string,
-  inverted: PropTypes.bool
-}
+  inverted: PropTypes.bool,
+};
 
-export default Container
+export default Container;

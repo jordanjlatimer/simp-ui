@@ -1,30 +1,34 @@
-import * as React from 'react';
-import "./checkbox.sass"
+import * as React from "react";
+import "./checkbox.sass";
 
 type CheckboxProps = {
-  label: string,
-  initChecked?: boolean,
-  labelPosition?: string
-}
+  label: string;
+  initChecked?: boolean;
+  labelPosition?: string;
+};
 
-function Checkbox({label, initChecked = false, labelPosition = "left"}: CheckboxProps){
-  const [checked, setChecked] = React.useState(initChecked)
-  
-  return(
-    <div 
-      className="checkbox"
-      onClick={() => setChecked(!checked)}
-      tabIndex={0}
-    >
-      {labelPosition === "left" ? <p className="checkbox-label left">{label}</p> : null}
+const Checkbox: React.FC<CheckboxProps> = ({
+  label,
+  initChecked = false,
+  labelPosition = "left",
+}: CheckboxProps) => {
+  const [checked, setChecked] = React.useState(initChecked);
+
+  return (
+    <div className="checkbox" onClick={() => setChecked(!checked)} tabIndex={0}>
+      {labelPosition === "left" ? (
+        <p className="checkbox-label left">{label}</p>
+      ) : null}
       <div className="checkbox-outer">
-        <div className={"checkbox-inner" + (checked ? " checked" : "")}/>
+        <div className={"checkbox-inner" + (checked ? " checked" : "")} />
       </div>
-      {labelPosition === "left" ? null : <p className="checkbox-label right">{label}</p>}
+      {labelPosition === "left" ? null : (
+        <p className="checkbox-label right">{label}</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
 Checkbox.displayName = "Checkbox";
 
-export default Checkbox
+export default Checkbox;

@@ -16,7 +16,7 @@ import Drawer from "./Interaction/Drawer/Drawer.js";
 import Modal from "./Interaction/Modal/Modal.js";
 
 // layout
-import Container from "./Layout/Container/Container.js"
+import Container from "./Layout/Container/Container.js";
 
 export {
   Accordion,
@@ -30,5 +30,5 @@ export {
   Button,
   Drawer,
   Modal,
-  Container
-}
+  Container,
+};

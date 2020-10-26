@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 import "./button.sass";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
-function Button({onClick, label}){
-  return(
+function Button({ onClick, label }) {
+  return (
     <div className="button" onClick={onClick}>
       <p>{label}</p>
     </div>
-  )
+  );
 }
 
 Button.displayName = "Button";
 
 Button.propTypes = {
   label: PropTypes.string,
-  onClick: PropTypes.func
-}
+  onClick: PropTypes.func,
+};
 
-export default Button
+export default Button;
