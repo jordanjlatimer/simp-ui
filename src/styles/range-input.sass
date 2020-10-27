@@ -1,0 +1,36 @@
+@import 'global-variables'
+  
+.range-input
+  display: flex
+  flex-wrap: wrap
+  width: 300px
+  height: fit-content
+
+  &-label
+    flex-basis: 50%
+
+  &-value
+    text-align: right
+    flex-basis: 50%
+    flex-shrink: 0
+
+  &-slider
+    width: 100%
+    -webkit-appearance: none
+    background: transparent
+    padding: 15px 0px
+    cursor: pointer
+
+    &::-webkit-slider-thumb
+      -webkit-appearance: none
+      margin-top: -7px
+      height: 20px
+      width: 20px
+      border-radius: 15%
+      background-color: $background-primary
+
+    &::-webkit-slider-runnable-track
+      height: 10px
+      width: 100%
+      border-radius: 4px
+      border: 2px solid $background-primary

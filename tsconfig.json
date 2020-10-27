@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "jsx": "preserve",
-    "noEmit": true,
-    "strict": true
+    "jsx": "react",
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "lib",
+    "lib": ["ES2017", "DOM", "ES6"]
   },
   "include": ["src"]
 }

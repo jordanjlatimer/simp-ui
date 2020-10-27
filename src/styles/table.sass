@@ -1,0 +1,49 @@
+@import 'global-variables'
+  
+.table
+  width: 100%
+  box-shadow: 0px 0px 8px 0px $shadow-color
+
+  &-header
+    font-size: 18px
+    background-color: $background-primary
+    color: $color-primary
+    padding: 12px 30px 12px 6px
+    text-align: left
+    cursor: pointer
+    transition: all 200ms
+    
+    &:hover
+      background-color: $background-hover
+
+  &-sorticon
+    position: absolute
+    top: 50%
+    right: 10px
+    transform: translateY(-50%)
+
+    path
+      fill: $color-primary
+
+  &-row
+    transition: all 0ms
+    cursor: pointer
+    background-color: $color-primary
+
+    &:nth-child(odd)
+      background-color: #dbdbdb
+
+    &:hover
+      transition: all 200ms
+      background-color: #c9c9c9
+
+    &.active
+      transition: all 200ms
+      transform: translateX(-8px)
+      background-color: $background-active
+      color: $color-primary
+      box-shadow: 2px 0px 8px 0px $shadow-color
+
+  &-cell
+    font-size: 15px
+    padding: 10px 10px 10px 22px

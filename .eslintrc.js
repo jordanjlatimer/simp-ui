@@ -16,6 +16,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
+  ignorePatterns: ["webpack.config.js", ".eslintrc.js"],
   rules: {},
   settings: {
     react: {
