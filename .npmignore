@@ -1,0 +1,6 @@
+.eslintrc.js
+src/
+.prettierignore
+.prettierrc.json
+package-lock.json
+tsconfig.json
