@@ -45,13 +45,14 @@ const Datepicker: React.FC<DatepickerProps> = ({
         if (weekDays !== 6) {
           for (let j = 0; j <= weekDays; j++) {
             returnArray.push(
-              <div key={j} className="datepicker-picker-days-day" />
+              <div key={j + "p"} className="datepicker-picker-days-day" />
             );
           }
         }
       } else {
         returnArray.push(
           <div
+            key={i + "d"}
             onClick={() => setDay(i)}
             className={
               "datepicker-picker-days-day" + (day === i ? " active" : "")
@@ -101,7 +102,7 @@ const Datepicker: React.FC<DatepickerProps> = ({
               }
             />
             <div>
-              {day > 0
+              {day === 0
                 ? new Date(year, month).toLocaleString("default", {
                     month: "long",
                     year: "numeric",

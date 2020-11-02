@@ -2,7 +2,7 @@ import * as React from "react";
 import "../../styles/radio-input.sass";
 
 type RadioInputProps = {
-  label: string;
+  label?: string;
   segmented?: boolean;
   horizontal?: boolean;
   options: { label: string; value: string }[];
@@ -14,13 +14,13 @@ const RadioInput: React.FC<RadioInputProps> = ({
   segmented,
   horizontal,
   options,
-  optionLabels,
+  optionLabels = "right",
 }: RadioInputProps) => {
   const [selected, setSelected] = React.useState(-1);
 
   return (
     <div className="radio-input">
-      <p className="radio-input-label">{label}</p>
+      <div className="radio-input-label">{label}</div>
       <div
         className={
           "radio-input-control" +
@@ -42,12 +42,13 @@ const RadioInput: React.FC<RadioInputProps> = ({
             </div>
           ) : (
             <div
+              key={option.value}
               className="radio-input-option"
               onClick={() => setSelected(index)}
               tabIndex={0}
             >
               {optionLabels === "left" ? (
-                <p className="radio-input-option-label left">{option.label}</p>
+                <div className="radio-input-option-label left">{option.label}</div>
               ) : null}
               <div className="radio-input-box-outer">
                 <div
@@ -58,7 +59,7 @@ const RadioInput: React.FC<RadioInputProps> = ({
                 />
               </div>
               {optionLabels === "right" ? (
-                <p className="radio-input-option-label right">{option.label}</p>
+                <div className="radio-input-option-label right">{option.label}</div>
               ) : null}
             </div>
           );

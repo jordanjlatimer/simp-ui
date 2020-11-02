@@ -1,6 +1,5 @@
 import * as React from "react";
 import "../../styles/input.sass";
-import { FaExclamationCircle } from "react-icons/fa";
 
 type InputProps = {
   initialValue?: string;
@@ -78,12 +77,6 @@ const Input: React.FC<InputProps> = ({
     <div className="input">
       <div className="input-label">
         {label}
-        <FaExclamationCircle
-          className={
-            "input-label-icon" +
-            (invalid && clicked && blurred ? " active" : "")
-          }
-        />
       </div>
       <div className="input-container">
         <input

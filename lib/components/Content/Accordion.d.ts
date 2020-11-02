@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../../styles/accordion.sass";
+import "../../styles/utility-classes.sass";
 declare type AccordionProps = {
-    label?: string;
     items: {
         label: string;
         contents: string;

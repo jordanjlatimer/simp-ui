@@ -3,14 +3,10 @@
 .accordion
   box-sizing: border-box
   width: 100%
-  margin: 10px
-
-  &-contents
-    margin-top: 6px
 
   &-item
 
-    &-label
+    &-control
       display: flex
       padding: 10px
       cursor: pointer
@@ -31,7 +27,6 @@
       svg
         width: 12px
         transition: all 200ms
-        margin-right: 12px
       
         path
           fill: $color-primary
@@ -52,5 +47,4 @@
     &-contents
       padding: 5px
       display: block
-      margin-left: 15px
       border-left: 2px solid $background-secondary

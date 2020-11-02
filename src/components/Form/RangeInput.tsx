@@ -24,8 +24,8 @@ const RangeInput: React.FC<RangeInputProps> = ({
 
   return (
     <div className="range-input">
-      <p className="range-input-label">{label}</p>
-      <p className="range-input-value">{prefix + value + suffix}</p>
+      <div className="range-input-label">{label}</div>
+      <div className="range-input-value">{prefix + value + suffix}</div>
       <input
         className="range-input-slider"
         type="range"

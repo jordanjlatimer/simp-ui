@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../../styles/radio-input.sass";
 declare type RadioInputProps = {
-    label: string;
+    label?: string;
     segmented?: boolean;
     horizontal?: boolean;
     options: {

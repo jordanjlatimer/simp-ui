@@ -49,7 +49,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div className="dropdown">
-      <p className="dropdown-label">{label}</p>
+      <div className="dropdown-label">{label}</div>
       <div
         ref={control}
         className={

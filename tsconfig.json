@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
     "jsx": "react",
     "strict": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,
     "outDir": "lib",
     "lib": ["ES2017", "DOM", "ES6"]
