@@ -1,17 +1,32 @@
-import "./styles/reset.sass";
+import "./reset.sass";
 
-export { Accordion } from "./components/Content/Accordion";
-export { Table } from "./components/Content/Table";
+import { Accordion } from "./Content/Accordion/Accordion";
+import { Table } from "./Content/Table/Table";
 
-export { Datepicker } from "./components/Form/Datepicker";
-export { Dropdown } from "./components/Form/Dropdown";
-export { Input } from "./components/Form/Input";
-export { Checkbox } from "./components/Form/Checkbox";
-export { RadioInput } from "./components/Form/RadioInput";
-export { RangeInput } from "./components/Form/RangeInput";
+import { Datepicker } from "./Form/Datepicker/Datepicker";
+import { Dropdown } from "./Form/Dropdown/Dropdown";
+import { Input } from "./Form/Input/Input";
+import { Checkbox } from "./Form/Checkbox/Checkbox";
+import { RadioInput } from "./Form/RadioInput/RadioInput";
+import { RangeInput } from "./Form/RangeInput/RangeInput";
 
-export { Button } from "./components/Interaction/Button";
-export { Drawer } from "./components/Interaction/Drawer";
-export { Modal } from "./components/Interaction/Modal";
+import { Button } from "./Interaction/Button/Button";
+import { Drawer } from "./Interaction/Drawer/Drawer";
+import { Modal } from "./Interaction/Modal/Modal";
 
-export { Container } from "./components/Layout/Container";
+import { Container } from "./Layout/Container/Container";
+
+export {
+  Accordion,
+  Table,
+  Datepicker,
+  Dropdown,
+  Input,
+  Checkbox,
+  RadioInput,
+  RangeInput,
+  Button,
+  Drawer,
+  Modal,
+  Container
+}
