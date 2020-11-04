@@ -26,11 +26,9 @@ const Datepicker: React.FC<DatepickerProps> = ({
 
   const toggle = (e: MouseEvent) => {
     if (!open && control.current?.contains(e.target as Node)){
-      console.log("Here")
       setOpen(true)
     } else if (open && !picker.current?.contains(e.target as Node)){
       setOpen(false)
-      console.log("There")
     }
   };
 

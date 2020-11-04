@@ -23,5 +23,7 @@
     "@types/react-dom": "^16.9.8",
     "react": "^17.0.1"
   },
-  "sideEffects": false
+  "sideEffects": [
+    "*.sass"
+  ]
 }
