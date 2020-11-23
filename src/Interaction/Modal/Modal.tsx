@@ -1,4 +1,5 @@
 import * as React from "react";
+import { RiCloseFill } from '@meronex/icons/ri';
 import "./modal.sass";
 
 type ModalProps = {
@@ -21,15 +22,13 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <div className={isOpen ? "modal open" : "modal"}>
       <div className="modal-contents">
-      <svg
+      <RiCloseFill
         className="modal-close"
         onClick={() => {
           setIsOpen(false);
           callback();
         }}
-      >
-        <rect width="20" height="20"/>
-      </svg>
+      />
       {children}
       </div>
     </div>

@@ -1,0 +1,153 @@
+@import "./globals"
+
+.ali-ite-c
+  align-items: center
+
+$borders: "l" "-left", "r" "-right", "b" "-bottom", "t" "-top", "a" ""
+
+@each $border, $prop in $borders
+  .bor-#{$border}
+    border#{$prop}: 2px solid $base
+
+.cur-p
+  cursor: pointer
+
+.dis
+  &-f
+    display: flex
+
+.foc
+  &-out
+    &-green
+      box-shadow: 0px 0px 2px 2px $active
+
+    &-none
+      outline: none
+
+@for $i from 1 through 10
+  .hei-p#{$i}0
+    height: #{$i+"0%"}
+
+@for $i from 0 through 240
+  @if $i % 10 == 0
+    .hei-#{$i}
+      height: #{$i+"px"}
+
+$heights: "u" unset, "i" initial, "f-c" fit-content
+
+@each $height, $value in $heights
+  .hei-#{$height}
+    height: $value
+
+.hov
+  &-bac-col-bl:hover
+    background-color: $base-lighter
+
+  &-box-sha-br:hover
+    box-shadow: 2px 2px 6px 0px $shadow-color
+
+  &-box-sha-c:hover
+    box-shadow: 0px 0px 4px 0px $shadow-color
+
+.inv
+  background-color: $base
+  color: white
+
+.jus-con
+  &-c
+    justify-content: center
+
+$margins: "a" "", "l" "-left", "r" "-right", "t" "-top", "b" "-bottom"
+
+@for $i from 1 through 60
+  @if $i % 4 == 0
+    @each $margin, $prop in $margins
+      .mar-#{$margin + $i}
+        margin#{$prop}: #{$i + "px"}
+
+$paddings: "a" "", "l" "-left", "r" "-right", "t" "-top", "b" "-bottom"
+
+@for $i from 1 through 60
+  @if $i % 4 == 0
+    @each $padding, $prop in $paddings
+      .pad-#{$padding + $i}
+        padding#{$prop}: #{$i + "px"}
+
+.rot
+  &-90
+    transform: rotate(90deg)
+  
+  &-180
+    transform: rotate(180deg)
+
+
+$radii: "a" 2px 2px 2px 2px, "l" 2px 0px 0px 2px, "r" 0px 2px 2px 0px, "t" 2px 2px 0px 0px, "b" 0px 0px 2px 2px, 
+
+@each $radius, $value1, $value2, $value3, $value4 in $radii
+  .bor-rad-#{$radius}
+    border-radius: $value1 $value2 $value3 $value4
+
+@for $i from 10 through 100
+  @if $i % 10 == 0
+    @for $j from 10 through 100
+      @if $j % 10 == 0
+        .tra-ori-x#{$i}-y#{$j}
+          transform-origin: #{$i + "%"} #{$j + "%"}
+
+.tra-sca
+  &-y0
+    transform: scaleY(0)
+
+  &-y1
+    transform: scaleY(1)
+
+  &-x0
+    transform: scaleX(0)
+
+  &-x1
+    transform: scaleX(1)
+
+@for $i from 1 through 10
+  .wid-p#{$i}0
+    width: #{$i+"0%"}
+
+@for $i from 1 through 24
+  .wid-#{$i}0
+    width: #{$i+"0px"}
+
+$widths: "u" unset, "i" initial, "f-c" fit-content
+
+@each $width, $value in $widths
+  .wid-#{$width}
+    width: $value
+
+.bor-rad-p50
+  border-radius: 50%
+
+.tra
+  transition: all 200ms
+
+.z-ind-1
+  z-index: 1
+
+.pos-a
+  position: absolute
+
+.lef-p50
+  left: 50%
+
+.top--10
+  top: -10px
+
+.opa-0
+  opacity: 0
+
+.opa-1
+
+
+
+
+
+
+
+

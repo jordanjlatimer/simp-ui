@@ -1,7 +1,6 @@
 @import "../../globals"
   
 .dropdown
-  margin: 10px
   height: fit-content //to prevent container from growing with flex
   width: 100%
 
@@ -59,12 +58,10 @@
     margin: 0px 0px 0px auto
     align-self: center
     transition: all 200ms, margin 0ms
+    fill: $base
 
     &.multiple
       margin-right: 5px
-    
-    path
-      fill: $base
     
     &.open
       transform: rotateX(180deg) 

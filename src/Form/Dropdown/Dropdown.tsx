@@ -1,4 +1,5 @@
 import * as React from "react";
+import { RiArrowDownSLine } from "@meronex/icons/ri"
 import "./dropdown.sass";
 
 type DropdownProps = {
@@ -80,15 +81,13 @@ const Dropdown: React.FC<DropdownProps> = ({
             {value[0] ? value[0].label : placeholder}
           </div>
         )}
-        <svg
+        <RiArrowDownSLine
           className={
             "dropdown-icon" + 
             (open ? " open" : "") +
             (multiple && value.length > 0 ? " multiple" : "")
           }
-        >
-          <rect width="20" height="20"/>
-        </svg>
+        />
       </div>
       <div ref={menu} className={"dropdown-menu" + (open ? " open" : "")}>
         {options.map((option) => {

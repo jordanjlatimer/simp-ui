@@ -1,4 +1,5 @@
 import * as React from "react";
+import { RiPlayFill, RiRewindFill } from "@meronex/icons/ri"
 import "./datepicker.sass";
 
 type DatepickerProps = {
@@ -73,35 +74,29 @@ const Datepicker: React.FC<DatepickerProps> = ({
         >
           {day < 1
             ? placeholder
-            : new Date(year, month, day).toLocaleString("default", {
-                month: "long",
-                year: "numeric",
-                day: "numeric",
-              })}
+            : new Date(year, month, day).toLocaleString("default", { month: "long", year: "numeric", day: "numeric", })}
         </div>
         <div
           ref={picker}
           className={"datepicker-picker" + (open ? " open" : "")}
         >
           <div className="datepicker-picker-navbar">
-            <svg
+            <RiRewindFill
               onClick={() => {
                 setDay(0);
                 setYear(year - 1);
               }}
-            >
-              <rect width="20" height="20"/>
-            </svg>
-            <svg
+              className="datepicker-picker-navbar-button"
+            />
+            <RiPlayFill
               onClick={() =>
                 month === 0
                   ? (setDay(0), setMonth(11), setYear(year - 1))
                   : (setDay(0), setMonth(month - 1))
               }
-            >
-              <rect width="20" height="20"/>
-            </svg>
-            <div>
+              className="datepicker-picker-navbar-button r180"
+            />
+            <div className="datepicker-picker-navbar-header">
               {day === 0
                 ? new Date(year, month).toLocaleString("default", {
                     month: "long",
@@ -113,23 +108,21 @@ const Datepicker: React.FC<DatepickerProps> = ({
                     day: "numeric",
                   })}
             </div>
-            <svg
+            <RiPlayFill
               onClick={() =>
                 month === 11
                   ? (setDay(0), setMonth(0), setYear(year + 1))
                   : (setDay(0), setMonth(month + 1))
               }
-            >
-              <rect width="20" height="20"/>
-            </svg>
-            <svg
+              className="datepicker-picker-navbar-button"
+            />
+            <RiRewindFill
               onClick={() => {
                 setDay(0);
                 setYear(year + 1);
               }}
-            >
-              <rect width="20" height="20"/>
-            </svg>
+              className="datepicker-picker-navbar-button r180"
+            />
           </div>
           <div className="datepicker-picker-days">
             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((label) => {

@@ -1,7 +1,6 @@
 @import "../../globals"
   
 .datepicker
-  margin: 10px
   width: 100%
   
   &-label
@@ -57,13 +56,14 @@
       padding: 10px 0px
       font-size: 25px
       
-      > svg
+      &-button
         cursor: pointer
-        
-        > path
-          fill: $base
+        fill: base
+
+        &.r180
+          transform: rotate(180deg)
       
-      > div
+      &-header
         width: 150px
         text-align: center
         font-size: 14px
