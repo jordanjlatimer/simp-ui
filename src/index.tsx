@@ -1,6 +1,7 @@
 import "./reset.sass";
 
 import { Accordion } from "./Content/Accordion/Accordion";
+import { LineGraph } from "./Content/LineGraph/LineGraph";
 import { Table } from "./Content/Table/Table";
 
 import { Datepicker } from "./Form/Datepicker/Datepicker";
@@ -19,6 +20,7 @@ import { Container } from "./Layout/Container/Container";
 
 export {
   Accordion,
+  LineGraph,
   Table,
   Datepicker,
   Dropdown,
