@@ -13,6 +13,7 @@ import { RangeInput } from "./Form/RangeInput/RangeInput";
 
 import { Button } from "./Interaction/Button/Button";
 import { Drawer } from "./Interaction/Drawer/Drawer";
+import { Loader } from "./Interaction/Loader/Loader"
 import { Modal } from "./Interaction/Modal/Modal";
 import { Menu } from "./Interaction/Menu/Menu"
 
@@ -30,6 +31,7 @@ export {
   RangeInput,
   Button,
   Drawer,
+  Loader,
   Modal,
   Menu,
   Container
