@@ -136,8 +136,8 @@ const LineGraph: React.FC<LineGraphProps> = ({
           <svg
             x={yAxWidth} 
             y={titleHeight} 
-            width={graphDim.width} 
-            height={graphDim.height}
+            width={Math.abs(graphDim.width)} 
+            height={Math.abs(graphDim.height)}
           >
             <Gridlines
               graphHeight={graphDim.height}
