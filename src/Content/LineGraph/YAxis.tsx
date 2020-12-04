@@ -27,16 +27,14 @@ const YAxis = React.forwardRef<SVGSVGElement, YAxisProps>(({ yTicks, width, heig
             value: Math.floor(maxY - (i * ((maxY - minY) / (yTicks + 1)))),
           };
         })
-        .map(tick => {
+        .map((tick, i) => {
           return (
-            <>
-              <text x={tick.x} y={tick.y} alignmentBaseline="middle" dominantBaseline="middle" textAnchor="end">
-                {prefix}
-                {tick.value}
-                {suffix}
+            <React.Fragment key={"f" + i}>
+              <text key={"k" + i} x={tick.x} y={tick.y} alignmentBaseline="middle" dominantBaseline="middle" textAnchor="end">
+                {(prefix ? prefix : "") + tick.value + (suffix ? suffix : "")}
               </text>
-              <path stroke={tickColor} strokeWidth={tickWidth} fill="transparent" d={"M" + width + " " + tick.y + " h-10"} />
-            </>
+              <path key={"p" + i} stroke={tickColor} strokeWidth={tickWidth} fill="transparent" d={"M" + width + " " + tick.y + " h-10"} />
+            </React.Fragment>
           );
         })}
       {title ? (

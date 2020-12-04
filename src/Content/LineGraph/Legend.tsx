@@ -26,14 +26,16 @@ const Legend = React.forwardRef<SVGSVGElement, LegendProps>(({ x, y, lines, widt
       {lines.map((line, i) => {
         const radius = line.options.pointRadius;
         return (
-          <>
+          <React.Fragment key={"f" + i}>
             <path
+              key={"l" + i}
               fill="transparent"
               stroke={line.options.lineColor}
               strokeWidth={line.options.lineWidth}
               d={"M" + width * 0.2 + " " + (i + 1) * 40 + " h" + width * 0.6}
             />
             <path
+              key={"p" + i}
               fill={line.options.pointFill}
               stroke={line.options.lineColor}
               strokeWidth={line.options.lineWidth}
@@ -58,10 +60,10 @@ const Legend = React.forwardRef<SVGSVGElement, LegendProps>(({ x, y, lines, widt
                 " 0"
               }
             />
-            <text x={width / 2} y={(i + 1) * 40 - 10} textAnchor="middle">
+            <text key={"t" + i} x={width / 2} y={(i + 1) * 40 - 10} textAnchor="middle">
               {line.label}
             </text>
-          </>
+          </React.Fragment>
         );
       })}
     </svg>

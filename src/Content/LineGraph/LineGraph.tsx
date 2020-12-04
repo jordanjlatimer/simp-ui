@@ -105,12 +105,12 @@ const LineGraph: React.FC<LineGraphProps> = ({
   }, [canvDim])
 
   return (
-    <>
-      <div className="line-graph" ref={canvRef}>
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <React.Fragment key="f">
+      <div className="line-graph" ref={canvRef} >
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" >
           {
             title ? 
-              <Title 
+              <Title
                 ref={titleRef} 
                 x={yAxWidth} 
                 width={graphDim.width} 
@@ -133,7 +133,7 @@ const LineGraph: React.FC<LineGraphProps> = ({
             tickWidth={borderWidth}
             ref={yAxRef}
           />
-          <svg 
+          <svg
             x={yAxWidth} 
             y={titleHeight} 
             width={graphDim.width} 
@@ -148,10 +148,11 @@ const LineGraph: React.FC<LineGraphProps> = ({
               width={gridLineWidth}
               dash={gridLineDash}
             />
-            {lines.map(line => {
+            {lines.map((line, i) => {
               return (
-                <>
+                <React.Fragment key={"f" + i}>
                   <Line
+                    key={"l" + i}
                     color={line.options.lineColor}
                     width={line.options.lineWidth}
                     minY={minY}
@@ -161,6 +162,7 @@ const LineGraph: React.FC<LineGraphProps> = ({
                     graphWidth={graphDim.width}
                   />
                   <Points
+                    key={"p" + i}
                     fillColor={line.options.pointFill}
                     color={line.options.lineColor}
                     width={line.options.lineWidth}
@@ -171,14 +173,14 @@ const LineGraph: React.FC<LineGraphProps> = ({
                     graphHeight={graphDim.height}
                     graphWidth={graphDim.width}
                   />
-                </>
+                </React.Fragment>
               );
             })}
             <Border graphHeight={graphDim.height} graphWidth={graphDim.width} width={borderWidth} color={borderColor} />
           </svg>
           {
             legend ? 
-            <Legend 
+            <Legend
               ref={legRef} 
               x={yAxWidth + graphDim.width} 
               y={titleHeight} 
@@ -203,7 +205,7 @@ const LineGraph: React.FC<LineGraphProps> = ({
           />
         </svg>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

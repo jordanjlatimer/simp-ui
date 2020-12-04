@@ -97,61 +97,69 @@
   100%
     opacity: 1
 
-.loader-container
-  height: 60px
-  width: 60px
+.loader
+  height: 100%
+  width: 100%
   display: flex
-  align-items: center
   justify-content: center
-  position: relative
+  align-items: center
+  min-height: inherit
 
-  &-text
-    animation-name: text
-    width: 100%
-    height: 100%
+  &-container
+    height: 60px
+    width: 60px
     display: flex
     align-items: center
     justify-content: center
-    padding: 10px
-    animation-duration: 5s
-    animation-timing-function: ease-in
-    animation-iteration-count: infinite
+    position: relative
 
-  &-ball
-    background-color: rgb(202, 216, 201)
-    position: absolute
-    top: 20px
-    left: 20px
-    height: 20px
-    width: 20px
-    border-radius: 50%
-    opacity: 0
-    animation-duration: 2s
-    animation-timing-function: ease-in
-    animation-iteration-count: infinite
+    &-text
+      animation-name: text
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 10px
+      animation-duration: 5s
+      animation-timing-function: ease-in
+      animation-iteration-count: infinite
 
-    &.first
-      animation-name: first, fade
+    &-ball
+      background-color: rgb(202, 216, 201)
+      position: absolute
+      top: 20px
+      left: 20px
+      height: 20px
+      width: 20px
+      border-radius: 50%
+      opacity: 0
+      animation-duration: 2s
+      animation-timing-function: ease-in
+      animation-iteration-count: infinite
 
-    &.second
-      animation-name: second, fade
+      &.first
+        animation-name: first, fade
 
-    &.third
-      animation-name: third, fade
+      &.second
+        animation-name: second, fade
 
-    &.fourth
-      animation-name: fourth, fade
+      &.third
+        animation-name: third, fade
 
-    &.fifth
-      animation-name: fifth, fade
+      &.fourth
+        animation-name: fourth, fade
 
-    &.sixth
-      animation-name: sixth, fade
+      &.fifth
+        animation-name: fifth, fade
 
-    &.seventh
-      animation-name: seventh, fade
+      &.sixth
+        animation-name: sixth, fade
 
-    &.eighth
-      animation-name: eighth, fade
+      &.seventh
+        animation-name: seventh, fade
+
+      &.eighth
+        animation-name: eighth, fade
 
 
