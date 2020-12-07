@@ -5,7 +5,7 @@
     "lib": ["ES6", "DOM", "es2017"],
     "strict": true,
     "jsx": "react",
-    "target": "ES5",
+    "target": "ES6",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "dist",

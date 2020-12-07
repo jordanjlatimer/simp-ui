@@ -1,7 +1,6 @@
 import * as React from "react";
 import "../styles/loader.sass";
-var Loader = function (_a) {
-    var _b = _a.text, text = _b === void 0 ? "Loading..." : _b;
+const Loader = ({ text = "Loading..." }) => {
     return (React.createElement("div", { className: "loader" },
         React.createElement("div", { className: "loader-container" },
             React.createElement("div", { className: "loader-container-text" }, text),

@@ -1,14 +1,13 @@
 import * as React from "react";
-var Gridlines = function (_a) {
-    var graphHeight = _a.graphHeight, graphWidth = _a.graphWidth, yLines = _a.yLines, xLines = _a.xLines, color = _a.color, width = _a.width, dash = _a.dash;
-    var createPath = function () {
-        var hSpacing = graphWidth / xLines;
-        var vSpacing = graphHeight / (yLines + 1);
-        var d = "";
-        for (var i = 1; i <= yLines; i++) {
+const Gridlines = ({ graphHeight, graphWidth, yLines, xLines, color, width, dash }) => {
+    const createPath = () => {
+        const hSpacing = graphWidth / xLines;
+        const vSpacing = graphHeight / (yLines + 1);
+        let d = "";
+        for (let i = 1; i <= yLines; i++) {
             d += " M0 " + (vSpacing * i).toFixed(2) + " h" + graphWidth;
         }
-        for (var i = 1; i <= xLines; i++) {
+        for (let i = 1; i <= xLines; i++) {
             d += " M" + (hSpacing * i).toFixed(2) + " 0" + " v" + graphHeight;
         }
         return d;

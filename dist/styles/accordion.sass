@@ -6,13 +6,13 @@
     display: flex
     flex-wrap: wrap
     cursor: pointer
-    background-color: $base
+    background-color: $base-dark
     color: white
     transition: all 200ms
     z-index: 1
   
     &:hover
-      background-color: $base-lighter
+      background-color: $base
       box-shadow: 2px 2px 6px 0px $shadow-color
   
     &.first
@@ -40,7 +40,7 @@
     height: 0px
     flex-basis: 100%
     background-color: white
-    color: $base
+    color: $base-dark
 
     &.open
       padding: 12px
@@ -50,5 +50,5 @@
     &-inner
       padding: 5px
       display: block
-      border-left: 2px solid $base
+      border-left: 2px solid $base-dark
       margin-left: 16px

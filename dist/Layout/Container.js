@@ -1,7 +1,6 @@
 import * as React from "react";
 import "../styles/container.sass";
-var Container = function (_a) {
-    var raised = _a.raised, bordered = _a.bordered, margined = _a.margined, clickable = _a.clickable, stretchX = _a.stretchX, flex = _a.flex, padded = _a.padded, children = _a.children, column = _a.column, header = _a.header, inverted = _a.inverted;
+const Container = ({ raised, bordered, margined, clickable, stretchX, flex, padded, children, column, header, inverted, }) => {
     return (React.createElement("div", { className: "container" +
             (raised ? " raised" : "") +
             (bordered ? " bordered" : "") +

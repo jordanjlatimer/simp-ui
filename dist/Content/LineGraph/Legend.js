@@ -1,8 +1,7 @@
 import * as React from "react";
-var Legend = React.forwardRef(function (_a, ref) {
-    var x = _a.x, y = _a.y, lines = _a.lines, width = _a.width, height = _a.height;
-    return (React.createElement("svg", { ref: ref, x: x, y: y, className: "line-graph-legend" }, lines.map(function (line, i) {
-        var radius = line.options.pointRadius;
+const Legend = React.forwardRef(({ x, y, lines, width, height }, ref) => {
+    return (React.createElement("svg", { ref: ref, x: x, y: y, className: "line-graph-legend" }, lines.map((line, i) => {
+        const radius = line.options.pointRadius;
         return (React.createElement(React.Fragment, { key: "f" + i },
             React.createElement("path", { key: "l" + i, fill: "transparent", stroke: line.options.lineColor, strokeWidth: line.options.lineWidth, d: "M" + width * 0.2 + " " + (i + 1) * 40 + " h" + width * 0.6 }),
             React.createElement("path", { key: "p" + i, fill: line.options.pointFill, stroke: line.options.lineColor, strokeWidth: line.options.lineWidth, d: "M" +
