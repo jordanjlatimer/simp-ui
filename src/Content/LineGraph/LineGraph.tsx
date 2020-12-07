@@ -7,7 +7,7 @@ import { Title } from "./Title";
 import { YAxis } from "./YAxis";
 import { Legend } from "./Legend";
 import { XAxis } from "./XAxis";
-import "./line-graph.sass";
+import "../../styles/line-graph.sass";
 
 type LineGraphProps = {
   borderColor?: string;

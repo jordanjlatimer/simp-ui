@@ -1,23 +1,21 @@
-import "./reset.sass";
-
-import { Accordion } from "./Content/Accordion/Accordion";
+import { Accordion } from "./Content/Accordion";
 import { LineGraph } from "./Content/LineGraph/LineGraph";
-import { Table } from "./Content/Table/Table";
+import { Table } from "./Content/Table";
 
-import { Datepicker } from "./Form/Datepicker/Datepicker";
-import { Dropdown } from "./Form/Dropdown/Dropdown";
-import { Input } from "./Form/Input/Input";
-import { Checkbox } from "./Form/Checkbox/Checkbox";
-import { RadioInput } from "./Form/RadioInput/RadioInput";
-import { RangeInput } from "./Form/RangeInput/RangeInput";
+import { Datepicker } from "./Form/Datepicker";
+import { Dropdown } from "./Form/Dropdown";
+import { Input } from "./Form/Input";
+import { Checkbox } from "./Form/Checkbox";
+import { RadioInput } from "./Form/RadioInput";
+import { RangeInput } from "./Form/RangeInput";
 
-import { Button } from "./Interaction/Button/Button";
-import { Drawer } from "./Interaction/Drawer/Drawer";
-import { Loader } from "./Interaction/Loader/Loader"
-import { Modal } from "./Interaction/Modal/Modal";
-import { Menu } from "./Interaction/Menu/Menu"
+import { Button } from "./Interaction/Button";
+import { Drawer } from "./Interaction/Drawer";
+import { Loader } from "./Interaction/Loader"
+import { Modal } from "./Interaction/Modal";
+import { Menu } from "./Interaction/Menu"
 
-import { Container } from "./Layout/Container/Container";
+import { Container } from "./Layout/Container";
 
 export {
   Accordion,
