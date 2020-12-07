@@ -1,0 +1,113 @@
+@import "./_globals"
+  
+.dropdown
+  height: fit-content //to prevent container from growing with flex
+  width: 100%
+
+  &-label
+    font-size: 14px
+
+  &-control
+    display: flex
+    padding: 10px
+    margin-top: 4px
+    color: $base
+    cursor: pointer
+    border-radius: 2px
+    border: 2px solid $base
+    transition: all 200ms, padding 0ms
+    font-size: 90%
+    line-height: 1
+    width: 100%
+    
+    &.open
+      border-radius: 2px 2px 0px 0px
+    
+    &.multiple
+      padding: 5px
+    
+    &:hover
+      box-shadow: 2px 2px 6px 0px $shadow-color
+
+    &:focus
+      outline: none
+
+  &-value
+    flex-grow: 1
+    align-self: center
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    
+    &-multiple
+      display: flex
+      align-self: center
+      align-items: center
+      text-overflow: ellipsis
+      white-space: nowrap
+      border-radius: 2px
+      background-color: $base
+      color: white
+      padding: 5px
+      margin-left: 5px
+      
+      &:first-of-type
+        margin-left: 0px
+  
+  &-icon
+    margin: 0px 0px 0px auto
+    align-self: center
+    transition: all 200ms, margin 0ms
+    fill: $base
+
+    &.multiple
+      margin-right: 5px
+    
+    &.open
+      transform: rotateX(180deg) 
+
+  &-menu
+    min-width: 100%
+    max-width: 200%
+    max-height: 400%
+    position: absolute
+    top: 100%
+    background-color: white
+    color: $base
+    transform-origin: 0% 0%
+    transform: scaleY(0)
+    opacity: 0
+    border-radius: 0px 0px 2px 2px
+    z-index: 2
+    transition: all 200ms
+    overflow-y: scroll
+    padding: 5px
+    border: 2px solid $base
+    
+    &.open
+      transform: scale(1, 1)
+      opacity: 1
+
+  &-item
+    padding: 12px 16px
+    color: $base
+    cursor: pointer
+    transition: all 200ms
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    border-radius: 2px
+    margin-top: 5px
+    
+    &:hover
+      background-color: $base-lighter
+      color: white
+    
+    &.selected
+      background-color: $base
+      color: white
+
+      &:hover
+        background-color: $base-lighter
+        color: white
+    
