@@ -1,44 +1,34 @@
 import * as React from "react";
-import "../styles/input.sass";
+import "../styles/textarea.sass";
 
-type InputProps = {
+type TextAreaProps = {
   initialValue?: string;
-  changeValidation?: (value: string) => boolean;
   onChange?: (value: string) => void;
   valueValidation?: (value: string) => { invalid: boolean; message: string };
   label: string;
-  valueDisplay?: (value: string) => string;
-  password?: boolean;
   placeholder?: string;
-  prefix?: string;
-  suffix?: string;
   width?: "short" | "medium" | "long"
+  height?: "short" | "medium" | "long"
 };
 
-const Input: React.FC<InputProps> = ({
+const TextArea: React.FC<TextAreaProps> = ({
   initialValue,
-  changeValidation = (value) => true,
   onChange = (value) => value,
   valueValidation = (value) => {
     return { invalid: false, message: "" };
   },
   label,
-  valueDisplay = (value) => value,
-  password = false,
   placeholder,
-  prefix,
-  suffix,
   width = "medium",
-}: InputProps) => {
+  height = "medium"
+}: TextAreaProps) => {
   const [value, setValue] = React.useState(initialValue ? initialValue : "");
   const [invalid, setInvalid] = React.useState(false);
   const [invMessage, setInvMessage] = React.useState("");
   const [showMessage, setShowMessage] = React.useState(false);
   const [clicked, setClicked] = React.useState(false);
   const [blurred, setBlurred] = React.useState(false);
-  const prefixRef = React.useRef<HTMLDivElement>(null);
-  const suffixRef = React.useRef<HTMLDivElement>(null);
-  const control = React.useRef<HTMLInputElement>(null);
+  const control = React.useRef<HTMLTextAreaElement>(null);
 
   const blurFunc = () => {
     setShowMessage(false);
@@ -49,23 +39,11 @@ const Input: React.FC<InputProps> = ({
     setClicked(true);
   };
 
-  React.useLayoutEffect(() => {
-    if (control.current && prefixRef.current) {
-      control.current.style.paddingLeft = prefixRef.current.clientWidth + "px";
-    }
-    if (control.current && suffixRef.current) {
-      control.current.style.paddingRight = suffixRef.current.clientWidth + "px";
-    }
-  }, []);
-
   const changeFunc = (e: React.ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
+    const target = e.target as HTMLTextAreaElement;
     if (target) {
-      if (target.value.split("").every(changeValidation)) {
-        setValue(target.value);
-        onChange(target.value);
-      }
       let validation = valueValidation(target.value);
+      setValue(target.value);
       if (validation.invalid) {
         setInvalid(true);
         setInvMessage(validation.message);
@@ -76,30 +54,23 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <div className={"input" + " " + width}>
-      <div className="input-label">
+    <div className={"textarea" + " w-" + width + " h-" + height}>
+      <div className="textarea-label">
         {label}
       </div>
-      <div className="input-container">
-        <input
-          className={"input-control" + (invalid ? " invalid" : "")}
+      <div className="textarea-container">
+        <textarea
+          className={"textarea-control" + (invalid ? " invalid" : "")}
           onBlur={blurFunc}
-          value={valueDisplay(value)}
+          value={value}
           onFocus={focusFunc}
-          type={password ? "password" : "text"}
           placeholder={placeholder}
           ref={control}
           onChange={changeFunc}
         />
-        <div className="input-prefix" ref={prefixRef}>
-          {prefix}
-        </div>
-        <div className="input-suffix" ref={suffixRef}>
-          {suffix}
-        </div>
         <div
           className={
-            "input-label-invalid" +
+            "textarea-label-invalid" +
             (showMessage && invalid && clicked && blurred ? " active" : "")
           }
         >
@@ -110,6 +81,6 @@ const Input: React.FC<InputProps> = ({
   );
 };
 
-Input.displayName = "Input";
+TextArea.displayName = "TextArea";
 
-export { Input };
+export { TextArea };

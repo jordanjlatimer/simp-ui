@@ -7,13 +7,15 @@ type DropdownProps = {
   multiple?: boolean;
   placeholder?: string;
   options: { value: string; label: string }[];
+  width?: "short" | "medium" | "long"
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
   label,
   multiple = false,
-  placeholder,
+  placeholder = "Select an option...",
   options,
+  width = "medium"
 }: DropdownProps) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState([] as DropdownProps["options"]);
@@ -48,39 +50,37 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <div className="dropdown">
+    <div className={"dropdown" + " " + width}>
       <div className="dropdown-label">{label}</div>
       <div
         ref={control}
         className={
           "dropdown-control" +
-          (open ? " open" : "") +
-          (multiple && value.length > 0 ? " multiple" : "")
+          (open ? " open" : "")
         }
         onClick={() => setOpen(!open)}
         tabIndex={0}
       >
-        {multiple ? (
-          value.length > 0 ? (
-            over ? (
-              <div className="dropdown-value-multiple">
-                {value.length + " Items Selected"}
-              </div>
-            ) : (
-              value.map((selection) => (
-                <div key={selection.value} className="dropdown-value-multiple">
-                  {selection.label}
+        {
+          multiple ?
+            value.length > 0 ?
+              over ? 
+                <div className="dropdown-value multiple">
+                  {value.length + " Items Selected"}
                 </div>
-              ))
-            )
-          ) : (
-            <div className="dropdown-value">{placeholder}</div>
-          )
-        ) : (
-          <div className="dropdown-value">
-            {value[0] ? value[0].label : placeholder}
-          </div>
-        )}
+                : 
+                value.map((selection) => (
+                  <div key={selection.value} className="dropdown-value multiple">
+                    {selection.label}
+                  </div>
+                ))
+              :
+              <div className="dropdown-value">{placeholder}</div>
+            :
+            <div className="dropdown-value">
+              {value[0] ? value[0].label : placeholder}
+            </div>
+        }
         <RiArrowDownSLine
           className={
             "dropdown-icon" + 

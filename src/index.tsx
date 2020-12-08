@@ -8,6 +8,7 @@ import { Input } from "./Form/Input";
 import { Checkbox } from "./Form/Checkbox";
 import { RadioInput } from "./Form/RadioInput";
 import { RangeInput } from "./Form/RangeInput";
+import { TextArea } from "./Form/TextArea"
 
 import { Button } from "./Interaction/Button";
 import { Drawer } from "./Interaction/Drawer";
@@ -27,6 +28,7 @@ export {
   Checkbox,
   RadioInput,
   RangeInput,
+  TextArea,
   Button,
   Drawer,
   Loader,

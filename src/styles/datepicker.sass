@@ -4,7 +4,7 @@
   width: 100%
   
   &-label
-    font-size: 12px
+    font-size: 14px
 
   &-control
     display: flex
@@ -15,9 +15,9 @@
     cursor: pointer
     border-radius: 2px
     transition: all 200ms
-    color: $base
-    min-height: 36px
-    border: 2px solid $base
+    color: $base-dark
+    min-height: 35px
+    border: 2px solid $base-dark
     
     &:hover
       box-shadow: 2px 2px 6px 0px $shadow-color
@@ -29,8 +29,8 @@
     z-index: 1
     position: absolute
     left: 50%
-    top: -12px
-    padding: 12px
+    top: -10px
+    padding: 10px
     height: 320px
     width: 300px
     box-shadow: 0px 0px 8px 0px $shadow-color
@@ -40,8 +40,8 @@
     transition: all 200ms
     border-radius: 2px
     background-color: white
-    color: $base
-    border: 2px solid $base
+    color: $base-dark
+    border: 2px solid $base-dark
     
     &.open
       opacity: 1
@@ -53,8 +53,8 @@
       justify-content: space-between
       align-items: center
       width: 100%
-      padding: 8px 0px
-      font-size: 24px
+      padding: 10px 0px
+      font-size: 25px
       
       &-button
         cursor: pointer
@@ -64,20 +64,20 @@
           transform: rotate(180deg)
       
       &-header
-        width: 140px
+        width: 150px
         text-align: center
-        font-size: 16px
+        font-size: 14px
         user-select: none
 
     &-days
       display: flex
       flex-wrap: wrap
-      width: 240px
+      width: 245px
       margin: 0px auto
 
       &-header
-        width: 36px
-        height: 36px
+        width: 35px
+        height: 35px
         display: flex
         justify-content: center
         align-items: center
@@ -87,16 +87,16 @@
         transition: all 200ms
       
       &-day
-        width: 36px
-        height: 36px
+        width: 35px
+        height: 35px
         display: flex
         justify-content: center
         align-items: center
-        font-size: 12px
+        font-size: 10px
         cursor: pointer
         border-radius: 50%
         transition: all 200ms
         
         &.active
-          background-color: $base-lighter
+          background-color: $base
           color: white
