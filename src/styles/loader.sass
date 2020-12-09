@@ -52,52 +52,55 @@
 
 @keyframes fifth
   0%
-    transform: translate(-50px, -50px)
+    transform: translate(-60px, -60px)
   25%
-    transform: translate(-50px, -50px)
+    transform: translate(-60px, -60px)
   50%
-    transform: translate(50px, -50px)
+    transform: translate(60px, -60px)
   100%
-    transform: translate(50px, -50px)
+    transform: translate(60px, -60px)
 
 @keyframes sixth
   0%
-    transform: translate(50px, -50px)
+    transform: translate(60px, -60px)
   25%
-    transform: translate(50px, -50px)
+    transform: translate(60px, -60px)
   50%
-    transform: translate(50px, 50px)
+    transform: translate(60px, 60px)
   100%
-    transform: translate(50px, 50px)
+    transform: translate(60px, 60px)
 
 @keyframes seventh
   0%
-    transform: translate(50px, 50px)
+    transform: translate(60px, 60px)
   25%
-    transform: translate(50px, 50px)
+    transform: translate(60px, 60px)
   50%
-    transform: translate(-50px, 50px)
+    transform: translate(-60px, 60px)
   100%
-    transform: translate(-50px, 50px)
+    transform: translate(-60px, 60px)
 
 @keyframes eighth
   0%
-    transform: translate(-50px, 50px)
+    transform: translate(-60px, 60px)
   25%
-    transform: translate(-50px, 50px)
+    transform: translate(-60px, 60px)
   50%
-    transform: translate(-50px, -50px)
+    transform: translate(-60px, -60px)
   100%
-    transform: translate(-50px, -50px)
+    transform: translate(-60px, -60px)
 
 @keyframes text
   0%
-    opacity: 1
-  50%
-    opacity: 0
-    transform: skewX(2)
+    transform: rotate(0deg)
+  60%
+    transform: rotate(0deg)
+  70%
+    transform: rotate(-30deg)
+  90%
+    transform: rotate(390deg)
   100%
-    opacity: 1
+    transform: rotate(360deg)
 
 .loader
   height: 100%
@@ -123,8 +126,8 @@
       align-items: center
       justify-content: center
       padding: 10px
-      animation-duration: 5s
-      animation-timing-function: ease-in
+      animation-duration: 6s
+      animation-timing-function: ease-in-out
       animation-iteration-count: infinite
 
     &-ball

@@ -2,16 +2,8 @@
   
 .input
   font-size: 16px
-  margin: 8px 8px 0px 0px
-
-  &.short
-    width: 120px
-  
-  &.medium
-    width: 220px
-
-  &.long
-    width: 320px
+  margin: 16px 16px 0px 0px
+  width: fit-content
 
   &-label
     margin-bottom: 4px
@@ -44,8 +36,15 @@
     font-family: $font
     font-size: 16px
     transition: all 200ms
-    min-height: 36px
-    box-shadow: 0px 0px 4px 0px $shadow-color inset
+
+    &.short
+      width: 120px
+  
+    &.medium
+      width: 220px
+
+    &.long
+      width: 320px
     
     &::placeholder
       color: gray

@@ -8,6 +8,7 @@ type ContainerProps = {
   clickable?: boolean;
   stretchX?: boolean;
   flex?: boolean;
+  wrap?: boolean
   padded?: boolean;
   children?: React.ReactNode;
   column?: boolean;
@@ -22,6 +23,7 @@ const Container: React.FC<ContainerProps> = ({
   clickable,
   stretchX,
   flex,
+  wrap,
   padded,
   children,
   column,
@@ -48,6 +50,7 @@ const Container: React.FC<ContainerProps> = ({
         className={
           "container-contents" +
           (flex ? " flex" : "") +
+          (wrap ? " wrap" : "") +
           (column ? " column" : "") +
           (padded ? " padded" : "")
         }

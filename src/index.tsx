@@ -15,8 +15,10 @@ import { Drawer } from "./Interaction/Drawer";
 import { Loader } from "./Interaction/Loader"
 import { Modal } from "./Interaction/Modal";
 import { Menu } from "./Interaction/Menu"
+import { Notice } from "./Interaction/Notice"
 
 import { Container } from "./Layout/Container";
+import { Divider } from "./Layout/Divider"
 
 export {
   Accordion,
@@ -34,5 +36,7 @@ export {
   Loader,
   Modal,
   Menu,
-  Container
+  Notice,
+  Container,
+  Divider
 }

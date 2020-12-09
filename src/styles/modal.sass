@@ -1,12 +1,11 @@
 @import "./_globals"
   
 .modal
-  width: 100vw
-  height: 100vh
+  width: 100%
+  height: 100%
   position: fixed
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
+  top: 0px
+  left: 0px
   background-color: $shadow-color
   transition: all 200ms
   opacity: 0
@@ -18,23 +17,23 @@
   
   &-contents
     position: absolute
-    top: 50%
+    top: 20%
     left: 50%
-    transform: translate(-50%, -50%)
+    transform: translateX(-50%)
     background-color: white
     padding: 20px
     border-radius: 2px
-    border: 2px solid $base-dark
+    border: 2px solid $base-darkest
 
   &-close
     position: absolute
     top: -6px
     right: -6px
     cursor: pointer
-    fill: $base-dark
+    fill: $base-darkest
     background-color: white
     border-radius: 50%
-    border: 2px solid $base-dark
+    border: 2px solid $base-darkest
     font-size: 20px
     transition: all 200ms
 

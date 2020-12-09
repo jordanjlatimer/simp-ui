@@ -1,15 +1,33 @@
 @import "./_globals"
   
 .button
-  color: $base-dark
-  border: 2px solid $base-dark
-  padding: 10px
-  transition: all 200ms
-  border-radius: 2px
+  padding: 12px
+  border-radius: 4px
+  box-shadow: $small-shadow
+  transition: $trans
   cursor: pointer
-  text-align: center
-  margin: 10px
+  display: flex
+  align-content: center
+  width: fit-content
 
   &:hover
-    box-shadow: 2px 2px 8px 0px $shadow-color
-    transform: translate(-2px, -2px)
+    box-shadow: $med-shadow
+    transform: translate(-1px, -1px)
+
+  &.m-right
+    margin-right: 12px
+
+  &.f-right
+    margin-left: auto
+
+  &.green
+    background-color: $base
+
+  &.red
+    background-color: $base-red
+
+  &.blue
+    background-color: $base-blue
+
+  svg
+    margin-right: 8px

@@ -76,13 +76,13 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <div className={"input" + " " + width}>
+    <div className="input">
       <div className="input-label">
         {label}
       </div>
       <div className="input-container">
         <input
-          className={"input-control" + (invalid ? " invalid" : "")}
+          className={"input-control" + (invalid ? " invalid" : "") + " " + width}
           onBlur={blurFunc}
           value={valueDisplay(value)}
           onFocus={focusFunc}

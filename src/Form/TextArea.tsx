@@ -54,13 +54,13 @@ const TextArea: React.FC<TextAreaProps> = ({
   };
 
   return (
-    <div className={"textarea" + " w-" + width + " h-" + height}>
+    <div className="textarea">
       <div className="textarea-label">
         {label}
       </div>
       <div className="textarea-container">
         <textarea
-          className={"textarea-control" + (invalid ? " invalid" : "")}
+          className={"textarea-control" + (invalid ? " invalid" : "") + " w-" + width + " h-" + height}
           onBlur={blurFunc}
           value={value}
           onFocus={focusFunc}
