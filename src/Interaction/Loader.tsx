@@ -2,14 +2,16 @@ import * as React from "react";
 import "../styles/loader.sass";
 
 type LoaderProps = {
-  text?: string
+  text?: string,
+  dimBack?: boolean
 };
 
 const Loader: React.FC<LoaderProps> = ({
-  text = "Loading..."
+  text = "Loading...",
+  dimBack
 }: LoaderProps) => {
   return (
-    <div className="loader">
+    <div className={"loader" + (dimBack ? " dim-back" : "")}>
       <div className="loader-container">
         <div className="loader-container-text">{text}</div>
         <div className="loader-container-ball first"></div>

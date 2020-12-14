@@ -1,17 +1,23 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom"
 import { RiCloseFill } from '@meronex/icons/ri';
 import "../styles/modal.sass";
 
 type ModalProps = {
   open: boolean;
-  callback: () => void;
   children?: React.ReactNode;
+  position?: {
+    top?: string
+    right?: string,
+    bottom?: string,
+    left?: string
+  }
 };
 
 const Modal: React.FC<ModalProps> = ({
   open,
-  callback,
   children,
+  position
 }: ModalProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -19,19 +25,16 @@ const Modal: React.FC<ModalProps> = ({
     setIsOpen(open);
   }, [open]);
 
-  return (
-    <div className={isOpen ? "modal open" : "modal"}>
+  return ReactDOM.createPortal(
+    <div 
+      className={isOpen ? "modal open" : "modal"} 
+      style={{...position}}
+    >
       <div className="modal-contents">
-      <RiCloseFill
-        className="modal-close"
-        onClick={() => {
-          setIsOpen(false);
-          callback();
-        }}
-      />
       {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

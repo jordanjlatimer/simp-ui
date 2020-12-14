@@ -4,6 +4,7 @@
   font-size: 16px
   margin: 16px 16px 0px 0px
   width: fit-content
+  position: relative
 
   &-label
     margin-bottom: 4px
@@ -27,6 +28,7 @@
 
   &-container
     width: 100%
+    position: relative //Without this, absolute positioning of prefix and suffix won't work.
 
   &-control
     border: 2px solid $base-darkest
@@ -58,6 +60,7 @@
   &-prefix
     position: absolute
     top: 50%
+    left: 0%
     transform: translateY(-50%)
     padding-left: 8px //Padding helps javascript know how to accomodate its size.
     color: $base-darkest
