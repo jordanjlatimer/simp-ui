@@ -10,7 +10,7 @@ type GridlinesProps = {
   dash: string;
 };
 
-const Gridlines: React.FC<GridlinesProps> = ({ graphHeight, graphWidth, yLines, xLines, color, width, dash }) => {
+export const Gridlines: React.FC<GridlinesProps> = ({ graphHeight, graphWidth, yLines, xLines, color, width, dash }) => {
   const createPath = () => {
     const hSpacing = graphWidth / xLines;
     const vSpacing = graphHeight / (yLines + 1);
@@ -26,7 +26,3 @@ const Gridlines: React.FC<GridlinesProps> = ({ graphHeight, graphWidth, yLines, 
 
   return <path fill="transparent" stroke={color} strokeWidth={width} strokeDasharray={dash} d={createPath()} />;
 };
-
-Gridlines.displayName = "Gridlines";
-
-export { Gridlines };

@@ -16,7 +16,7 @@ type ContainerProps = {
   inverted?: boolean;
 };
 
-const Container: React.FC<ContainerProps> = ({
+export const Container: React.FC<ContainerProps> = ({
   raised,
   bordered,
   margined,
@@ -60,7 +60,3 @@ const Container: React.FC<ContainerProps> = ({
     </div>
   );
 };
-
-Container.displayName = "Container";
-
-export { Container };

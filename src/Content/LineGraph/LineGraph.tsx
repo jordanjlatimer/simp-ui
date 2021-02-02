@@ -41,7 +41,7 @@ type LineGraphProps = {
   }[];
 };
 
-const LineGraph: React.FC<LineGraphProps> = ({
+export const LineGraph: React.FC<LineGraphProps> = ({
   lines,
   borderColor = "gray",
   borderWidth = 2,
@@ -208,7 +208,3 @@ const LineGraph: React.FC<LineGraphProps> = ({
     </React.Fragment>
   );
 };
-
-LineGraph.displayName = "LineGraph";
-
-export { LineGraph };

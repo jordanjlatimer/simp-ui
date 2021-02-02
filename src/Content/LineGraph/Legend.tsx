@@ -20,7 +20,7 @@ type LegendProps = {
   height: number;
 };
 
-const Legend = React.forwardRef<SVGSVGElement, LegendProps>(({ x, y, lines, width, height }, ref) => {
+export const Legend = React.forwardRef<SVGSVGElement, LegendProps>(({ x, y, lines, width, height }, ref) => {
   return (
     <svg ref={ref} x={x} y={y} className="line-graph-legend">
       {lines.map((line, i) => {
@@ -69,7 +69,3 @@ const Legend = React.forwardRef<SVGSVGElement, LegendProps>(({ x, y, lines, widt
     </svg>
   );
 })
-
-Legend.displayName = "Legend";
-
-export { Legend };

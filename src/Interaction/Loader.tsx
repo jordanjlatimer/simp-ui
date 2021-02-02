@@ -6,7 +6,7 @@ type LoaderProps = {
   dimBack?: boolean
 };
 
-const Loader: React.FC<LoaderProps> = ({
+export const Loader: React.FC<LoaderProps> = ({
   text = "Loading...",
   dimBack
 }: LoaderProps) => {
@@ -26,7 +26,3 @@ const Loader: React.FC<LoaderProps> = ({
     </div>
   );
 };
-
-Loader.displayName = "Loader";
-
-export { Loader };

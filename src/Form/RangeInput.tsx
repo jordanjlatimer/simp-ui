@@ -11,7 +11,7 @@ type RangeInputProps = {
   step?: number;
 };
 
-const RangeInput: React.FC<RangeInputProps> = ({
+export const RangeInput: React.FC<RangeInputProps> = ({
   initial = 0,
   label,
   prefix = "",
@@ -43,7 +43,3 @@ const RangeInput: React.FC<RangeInputProps> = ({
     </div>
   );
 };
-
-RangeInput.displayName = "RangeInput";
-
-export { RangeInput };

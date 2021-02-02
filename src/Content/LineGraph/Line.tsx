@@ -13,7 +13,7 @@ type LineProps = {
   }[];
 };
 
-const Line: React.FC<LineProps> = ({ graphHeight, graphWidth, color, width, maxY, minY, data }) => {
+export const Line: React.FC<LineProps> = ({ graphHeight, graphWidth, color, width, maxY, minY, data }) => {
   const createPath = () => {
     let d = "M0 " + ((graphHeight * (maxY - data[0].y)) / (maxY - minY)).toFixed(2);
     const hSpacing = graphWidth / (data.length - 1);
@@ -32,7 +32,3 @@ const Line: React.FC<LineProps> = ({ graphHeight, graphWidth, color, width, maxY
 
   return <path fill="transparent" stroke={color} strokeWidth={width} d={createPath()} />;
 };
-
-Line.displayName = "Line";
-
-export { Line };

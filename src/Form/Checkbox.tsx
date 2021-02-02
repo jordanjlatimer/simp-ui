@@ -7,7 +7,7 @@ type CheckboxProps = {
   labelPosition?: string;
 };
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   label,
   initChecked = false,
   labelPosition = "right",
@@ -28,7 +28,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
     </div>
   );
 };
-
-Checkbox.displayName = "Checkbox";
-
-export { Checkbox };

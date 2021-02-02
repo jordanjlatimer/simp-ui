@@ -13,7 +13,7 @@ type NoticeProps = {
   }
 }
 
-const Notice: React.FC<NoticeProps> = ({text, icon, linger = 4000, position}) => {
+export const Notice: React.FC<NoticeProps> = ({text, icon, linger = 4000, position}) => {
   const [show, setShow] = React.useState(false)
 
   React.useEffect(() => {
@@ -33,10 +33,6 @@ const Notice: React.FC<NoticeProps> = ({text, icon, linger = 4000, position}) =>
     )
   )
 }
-
-Notice.displayName = "Notice"
-
-export { Notice }
 
 
 

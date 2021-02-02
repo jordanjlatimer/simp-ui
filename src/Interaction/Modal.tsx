@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom"
-import { RiCloseFill } from '@meronex/icons/ri';
 import "../styles/modal.sass";
 
 type ModalProps = {
@@ -14,7 +13,7 @@ type ModalProps = {
   }
 };
 
-const Modal: React.FC<ModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
   open,
   children,
   position
@@ -37,7 +36,3 @@ const Modal: React.FC<ModalProps> = ({
     document.body
   );
 };
-
-Modal.displayName = "Modal";
-
-export { Modal };

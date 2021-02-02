@@ -1,5 +1,4 @@
 import * as React from "react";
-import { RiArrowLeftSLine } from "@meronex/icons/ri"
 import "../styles/drawer.sass";
 
 type DrawerProps = {
@@ -9,7 +8,7 @@ type DrawerProps = {
   children?: React.ReactNode;
 };
 
-const Drawer: React.FC<DrawerProps> = ({
+export const Drawer: React.FC<DrawerProps> = ({
   open,
   position = "left",
   callback,
@@ -21,13 +20,8 @@ const Drawer: React.FC<DrawerProps> = ({
         className={"drawer-close" + (open ? " open" : "") + (" " + position)}
         onClick={callback}
       >
-        <RiArrowLeftSLine className={"drawer-close-icon" + (" " + position)}/>
       </div>
       {children}
     </div>
   );
 };
-
-Drawer.displayName = "Drawer";
-
-export { Drawer };

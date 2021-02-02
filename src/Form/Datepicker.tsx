@@ -1,5 +1,4 @@
 import * as React from "react";
-import { RiPlayFill, RiRewindFill } from "@meronex/icons/ri"
 import "../styles/datepicker.sass";
 
 type DatepickerProps = {
@@ -7,7 +6,7 @@ type DatepickerProps = {
   placeholder?: string;
 };
 
-const Datepicker: React.FC<DatepickerProps> = ({
+export const Datepicker: React.FC<DatepickerProps> = ({
   label,
   placeholder,
 }: DatepickerProps) => {
@@ -81,21 +80,6 @@ const Datepicker: React.FC<DatepickerProps> = ({
           className={"datepicker-picker" + (open ? " open" : "")}
         >
           <div className="datepicker-picker-navbar">
-            <RiRewindFill
-              onClick={() => {
-                setDay(0);
-                setYear(year - 1);
-              }}
-              className="datepicker-picker-navbar-button"
-            />
-            <RiPlayFill
-              onClick={() =>
-                month === 0
-                  ? (setDay(0), setMonth(11), setYear(year - 1))
-                  : (setDay(0), setMonth(month - 1))
-              }
-              className="datepicker-picker-navbar-button r180"
-            />
             <div className="datepicker-picker-navbar-header">
               {day === 0
                 ? new Date(year, month).toLocaleString("default", {
@@ -108,21 +92,6 @@ const Datepicker: React.FC<DatepickerProps> = ({
                     day: "numeric",
                   })}
             </div>
-            <RiPlayFill
-              onClick={() =>
-                month === 11
-                  ? (setDay(0), setMonth(0), setYear(year + 1))
-                  : (setDay(0), setMonth(month + 1))
-              }
-              className="datepicker-picker-navbar-button"
-            />
-            <RiRewindFill
-              onClick={() => {
-                setDay(0);
-                setYear(year + 1);
-              }}
-              className="datepicker-picker-navbar-button r180"
-            />
           </div>
           <div className="datepicker-picker-days">
             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((label) => {
@@ -139,7 +108,3 @@ const Datepicker: React.FC<DatepickerProps> = ({
     </div>
   );
 };
-
-Datepicker.displayName = "Datepicker";
-
-export { Datepicker };

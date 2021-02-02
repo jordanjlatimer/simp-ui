@@ -13,7 +13,7 @@ type XAxisProps = {
   yAxisWidth: number;
 };
 
-const XAxis = React.forwardRef<SVGSVGElement, XAxisProps>(({ x, y, xTicks, width, height, tickLabels, title, tickColor, tickWidth, yAxisWidth }, ref) => {
+export const XAxis = React.forwardRef<SVGSVGElement, XAxisProps>(({ x, y, xTicks, width, height, tickLabels, title, tickColor, tickWidth, yAxisWidth }, ref) => {
 
   return (
     <svg x={x} y={y} ref={ref} className="line-graph-x-axis">
@@ -41,7 +41,3 @@ const XAxis = React.forwardRef<SVGSVGElement, XAxisProps>(({ x, y, xTicks, width
     </svg>
   );
 })
-
-XAxis.displayName = "XAxis";
-
-export { XAxis };

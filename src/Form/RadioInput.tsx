@@ -9,7 +9,7 @@ type RadioInputProps = {
   optionLabels?: "left" | "right";
 };
 
-const RadioInput: React.FC<RadioInputProps> = ({
+export const RadioInput: React.FC<RadioInputProps> = ({
   label,
   segmented,
   horizontal,
@@ -68,7 +68,3 @@ const RadioInput: React.FC<RadioInputProps> = ({
     </div>
   );
 };
-
-RadioInput.displayName = "RadioInput";
-
-export { RadioInput };

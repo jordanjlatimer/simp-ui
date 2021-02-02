@@ -1,16 +1,10 @@
 {
   "compilerOptions": {
-    "module": "ES6",
-    "moduleResolution": "node",
-    "lib": ["ES6", "DOM", "es2017"],
     "strict": true,
     "jsx": "react",
-    "target": "ES6",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
     "outDir": "dist",
     "declaration": true
   },
   "exclude": ["node_modules"],
-  "include": ["src"]
+  "include": ["src/index.tsx"]
 }

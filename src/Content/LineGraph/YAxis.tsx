@@ -14,7 +14,7 @@ type YAxisProps = {
   titleHeight: number
 };
 
-const YAxis = React.forwardRef<SVGSVGElement, YAxisProps>(({ yTicks, width, height, maxY, minY, prefix, suffix, title, tickColor, tickWidth, titleHeight }, ref) => {
+export const YAxis = React.forwardRef<SVGSVGElement, YAxisProps>(({ yTicks, width, height, maxY, minY, prefix, suffix, title, tickColor, tickWidth, titleHeight }, ref) => {
   const tickArray = new Array(yTicks + 2).fill(null);
 
   return (
@@ -50,7 +50,3 @@ const YAxis = React.forwardRef<SVGSVGElement, YAxisProps>(({ yTicks, width, heig
     </svg>
   );
 })
-
-YAxis.displayName = "YAxis";
-
-export { YAxis };

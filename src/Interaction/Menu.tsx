@@ -1,5 +1,4 @@
 import * as React from "react";
-import { RiMenuFill } from "@meronex/icons/ri"
 import "../styles/menu.sass";
 
 type MenuProps = {
@@ -9,7 +8,7 @@ type MenuProps = {
   startOpen?: boolean;
 };
 
-const Menu: React.FC<MenuProps> = ({
+export const Menu: React.FC<MenuProps> = ({
   children,
   inverted = false,
   hideable = false,
@@ -25,7 +24,6 @@ const Menu: React.FC<MenuProps> = ({
             className={"menu-toggle" + (open ? " open" : "") + (inverted ? " inverted" : "")}
             onClick={() => setOpen(!open)}
           >
-            <RiMenuFill className={"menu-close-icon" + (inverted ? " inverted" : "")}/>
           </div>
           : null
       }
@@ -33,7 +31,3 @@ const Menu: React.FC<MenuProps> = ({
     </div>
   );
 };
-
-Menu.displayName = "Menu";
-
-export { Menu };

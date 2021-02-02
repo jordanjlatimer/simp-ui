@@ -15,7 +15,7 @@ type InputProps = {
   width?: "short" | "medium" | "long"
 };
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   initialValue,
   changeValidation = (value) => true,
   onChange = (value) => value,
@@ -109,7 +109,3 @@ const Input: React.FC<InputProps> = ({
     </div>
   );
 };
-
-Input.displayName = "Input";
-
-export { Input };

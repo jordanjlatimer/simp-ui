@@ -1,13 +1,12 @@
 import * as React from "react";
 import "../styles/accordion.sass";
-import { RiArrowRightSLine } from "@meronex/icons/ri"
 
 type AccordionProps = {
   items: { label: string; contents: string }[];
   multiple?: boolean;
 };
 
-const Accordion: React.FC<AccordionProps> = ({
+export const Accordion: React.FC<AccordionProps> = ({
   items,
   multiple = false,
 }: AccordionProps) => {
@@ -26,18 +25,17 @@ const Accordion: React.FC<AccordionProps> = ({
                 }
                 onClick={() => {
                   multiple
-                    ? expanded.includes(i)
+                    ? expanded.indexOf(i) !== -1
                       ? setExpanded(expanded.filter((value) => value !== i))
                       : setExpanded([...expanded, i])
-                    : expanded.includes(i)
+                    : expanded.indexOf(i) !== -1
                     ? setExpanded([])
                     : setExpanded([i]);
                 }}
               >
-                <RiArrowRightSLine className={"accordion-icon" + (expanded.includes(i) ? " open" : "")}/>
                 <div className="accordion-label">{item.label}</div>
               </div>
-              <div className={"accordion-contents" + (expanded.includes(i) ? " open" : "")}>
+              <div className={"accordion-contents" + (expanded.indexOf(i) !== -1 ? " open" : "")}>
                 <div className="accordion-contents-inner">{item.contents}</div>
               </div>
             </div>
@@ -46,7 +44,3 @@ const Accordion: React.FC<AccordionProps> = ({
     </div>
   );
 };
-
-Accordion.displayName = "Accordion";
-
-export { Accordion };

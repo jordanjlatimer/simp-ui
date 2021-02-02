@@ -15,7 +15,7 @@ type PointsProps = {
   }[];
 };
 
-const Points: React.FC<PointsProps> = ({ graphHeight, graphWidth, color, fillColor, width, radius, maxY, minY, data }) => {
+export const Points: React.FC<PointsProps> = ({ graphHeight, graphWidth, color, fillColor, width, radius, maxY, minY, data }) => {
   const createPath = () => {
     let d = "";
     const hSpacing = graphWidth / (data.length - 1);
@@ -29,7 +29,3 @@ const Points: React.FC<PointsProps> = ({ graphHeight, graphWidth, color, fillCol
 
   return <path fill={fillColor} stroke={color} strokeWidth={width} d={createPath()} />;
 };
-
-Points.displayName = "Points";
-
-export { Points };

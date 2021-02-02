@@ -11,7 +11,7 @@ type TextAreaProps = {
   height?: "short" | "medium" | "long"
 };
 
-const TextArea: React.FC<TextAreaProps> = ({
+export const TextArea: React.FC<TextAreaProps> = ({
   initialValue,
   onChange = (value) => value,
   valueValidation = (value) => {
@@ -80,7 +80,3 @@ const TextArea: React.FC<TextAreaProps> = ({
     </div>
   );
 };
-
-TextArea.displayName = "TextArea";
-
-export { TextArea };
