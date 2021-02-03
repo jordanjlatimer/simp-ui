@@ -21,46 +21,23 @@ export const RadioInput: React.FC<RadioInputProps> = ({
   return (
     <div className="radio-input">
       <div className="radio-input-label">{label}</div>
-      <div
-        className={
-          "radio-input-control" +
-          (segmented ? " segmented" : "") +
-          (horizontal ? " horizontal" : "")
-        }
-      >
+      <div className={"radio-input-control" + (segmented ? " segmented" : "") + (horizontal ? " horizontal" : "")}>
         {options.map((option, index) => {
           return segmented ? (
             <div
-              className={
-                "radio-input-option segmented" +
-                (selected === index ? " active" : "")
-              }
+              className={"radio-input-option segmented" + (selected === index ? " active" : "")}
               onClick={() => setSelected(index)}
               tabIndex={0}
             >
               {option.label}
             </div>
           ) : (
-            <div
-              key={option.value}
-              className="radio-input-option"
-              onClick={() => setSelected(index)}
-              tabIndex={0}
-            >
-              {optionLabels === "left" ? (
-                <div className="radio-input-option-label left">{option.label}</div>
-              ) : null}
+            <div key={option.value} className="radio-input-option" onClick={() => setSelected(index)} tabIndex={0}>
+              {optionLabels === "left" ? <div className="radio-input-option-label left">{option.label}</div> : null}
               <div className="radio-input-box-outer">
-                <div
-                  className={
-                    "radio-input-box-inner" +
-                    (selected === index ? " active" : "")
-                  }
-                />
+                <div className={"radio-input-box-inner" + (selected === index ? " active" : "")} />
               </div>
-              {optionLabels === "right" ? (
-                <div className="radio-input-option-label right">{option.label}</div>
-              ) : null}
+              {optionLabels === "right" ? <div className="radio-input-option-label right">{option.label}</div> : null}
             </div>
           );
         })}

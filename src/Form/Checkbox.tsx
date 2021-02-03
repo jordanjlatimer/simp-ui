@@ -16,15 +16,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <div className="checkbox" onClick={() => setChecked(!checked)} tabIndex={0}>
-      {labelPosition === "left" ? (
-        <div className="checkbox-label left">{label}</div>
-      ) : null}
+      {labelPosition === "left" ? <div className="checkbox-label left">{label}</div> : null}
       <div className="checkbox-outer">
         <div className={"checkbox-inner" + (checked ? " checked" : "")} />
       </div>
-      {labelPosition === "left" ? null : (
-        <div className="checkbox-label right">{label}</div>
-      )}
+      {labelPosition === "left" ? null : <div className="checkbox-label right">{label}</div>}
     </div>
   );
 };

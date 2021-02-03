@@ -12,7 +12,7 @@ export const Border: React.FC<BorderProps> = ({ graphHeight, graphWidth, color, 
     let d = "M" + width / 2 + " " + width / 2 + " h" + Math.abs(graphWidth - width);
     d += " v" + Math.abs(graphHeight - width);
     d += " h-" + Math.abs(graphWidth - width);
-    d += " v-" + Math.abs(graphHeight - (width / 2));
+    d += " v-" + Math.abs(graphHeight - width / 2);
     return d;
   };
 

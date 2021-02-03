@@ -7,20 +7,20 @@ type TextAreaProps = {
   valueValidation?: (value: string) => { invalid: boolean; message: string };
   label: string;
   placeholder?: string;
-  width?: "short" | "medium" | "long"
-  height?: "short" | "medium" | "long"
+  width?: "short" | "medium" | "long";
+  height?: "short" | "medium" | "long";
 };
 
 export const TextArea: React.FC<TextAreaProps> = ({
   initialValue,
-  onChange = (value) => value,
-  valueValidation = (value) => {
+  onChange = value => value,
+  valueValidation = value => {
     return { invalid: false, message: "" };
   },
   label,
   placeholder,
   width = "medium",
-  height = "medium"
+  height = "medium",
 }: TextAreaProps) => {
   const [value, setValue] = React.useState(initialValue ? initialValue : "");
   const [invalid, setInvalid] = React.useState(false);
@@ -55,9 +55,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
 
   return (
     <div className="textarea">
-      <div className="textarea-label">
-        {label}
-      </div>
+      <div className="textarea-label">{label}</div>
       <div className="textarea-container">
         <textarea
           className={"textarea-control" + (invalid ? " invalid" : "") + " w-" + width + " h-" + height}
@@ -68,12 +66,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
           ref={control}
           onChange={changeFunc}
         />
-        <div
-          className={
-            "textarea-label-invalid" +
-            (showMessage && invalid && clicked && blurred ? " active" : "")
-          }
-        >
+        <div className={"textarea-label-invalid" + (showMessage && invalid && clicked && blurred ? " active" : "")}>
           {invMessage}
         </div>
       </div>

@@ -60,12 +60,12 @@ export const LineGraph: React.FC<LineGraphProps> = ({
   yPrefix = "",
   ySuffix = "",
 }: LineGraphProps) => {
-  const [canvDim, setCanvDim] = React.useState({width: 0, height: 0})
-  const [titleHeight, setTitleHeight] = React.useState(10)
-  const [yAxWidth, setYAxWidth] = React.useState(0)
-  const [graphDim, setGraphDim] = React.useState({width: 0, height: 0})
-  const [legDim, setLegDim] = React.useState({width: 0, height: 0})
-  const [xAxHeight, setXAxHeight] = React.useState(0)
+  const [canvDim, setCanvDim] = React.useState({ width: 0, height: 0 });
+  const [titleHeight, setTitleHeight] = React.useState(10);
+  const [yAxWidth, setYAxWidth] = React.useState(0);
+  const [graphDim, setGraphDim] = React.useState({ width: 0, height: 0 });
+  const [legDim, setLegDim] = React.useState({ width: 0, height: 0 });
+  const [xAxHeight, setXAxHeight] = React.useState(0);
   const canvRef = React.useRef<HTMLDivElement>(null);
   const titleRef = React.useRef<SVGSVGElement>(null);
   const yAxRef = React.useRef<SVGSVGElement>(null);
@@ -84,41 +84,36 @@ export const LineGraph: React.FC<LineGraphProps> = ({
 
   const resize = () => {
     if (canvRef.current) {
-      setCanvDim({height: canvRef.current.offsetHeight, width: canvRef.current.offsetWidth})
+      setCanvDim({ height: canvRef.current.offsetHeight, width: canvRef.current.offsetWidth });
     }
   };
 
   React.useEffect(() => {
-    setGraphDim({height: canvDim.height - titleHeight - xAxHeight, width: canvDim.width - yAxWidth - legDim.width})
-    if (titleRef.current){
-      setTitleHeight(titleRef.current.getBoundingClientRect().height * 1.5)
+    setGraphDim({ height: canvDim.height - titleHeight - xAxHeight, width: canvDim.width - yAxWidth - legDim.width });
+    if (titleRef.current) {
+      setTitleHeight(titleRef.current.getBoundingClientRect().height * 1.5);
     }
-    if (yAxRef.current){
-      setYAxWidth(yAxRef.current.getBoundingClientRect().width * 1.5)
+    if (yAxRef.current) {
+      setYAxWidth(yAxRef.current.getBoundingClientRect().width * 1.5);
     }
-    if (legRef.current){
-      setLegDim({width: legRef.current.getBoundingClientRect().width * 1.5, height: legRef.current.getBoundingClientRect().width})
+    if (legRef.current) {
+      setLegDim({
+        width: legRef.current.getBoundingClientRect().width * 1.5,
+        height: legRef.current.getBoundingClientRect().width,
+      });
     }
-    if (xAxRef.current){
-      setXAxHeight(xAxRef.current.getBoundingClientRect().height * 1.5)
+    if (xAxRef.current) {
+      setXAxHeight(xAxRef.current.getBoundingClientRect().height * 1.5);
     }
-  }, [canvDim])
+  }, [canvDim]);
 
   return (
     <React.Fragment key="f">
-      <div className="line-graph" ref={canvRef} >
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" >
-          {
-            title ? 
-              <Title
-                ref={titleRef} 
-                x={yAxWidth} 
-                width={graphDim.width} 
-                height={titleHeight} 
-                title={title} 
-              /> 
-              : null
-          }
+      <div className="line-graph" ref={canvRef}>
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          {title ? (
+            <Title ref={titleRef} x={yAxWidth} width={graphDim.width} height={titleHeight} title={title} />
+          ) : null}
           <YAxis
             minY={minY}
             maxY={maxY}
@@ -133,16 +128,11 @@ export const LineGraph: React.FC<LineGraphProps> = ({
             tickWidth={borderWidth}
             ref={yAxRef}
           />
-          <svg
-            x={yAxWidth} 
-            y={titleHeight} 
-            width={Math.abs(graphDim.width)} 
-            height={Math.abs(graphDim.height)}
-          >
+          <svg x={yAxWidth} y={titleHeight} width={Math.abs(graphDim.width)} height={Math.abs(graphDim.height)}>
             <Gridlines
               graphHeight={graphDim.height}
               graphWidth={graphDim.width}
-              yLines={yGridLines ? (yTicks - 2) : 0}
+              yLines={yGridLines ? yTicks - 2 : 0}
               xLines={xGridLines ? xTicks - 1 : 0}
               color={gridLineColor}
               width={gridLineWidth}
@@ -178,18 +168,16 @@ export const LineGraph: React.FC<LineGraphProps> = ({
             })}
             <Border graphHeight={graphDim.height} graphWidth={graphDim.width} width={borderWidth} color={borderColor} />
           </svg>
-          {
-            legend ? 
+          {legend ? (
             <Legend
-              ref={legRef} 
-              x={yAxWidth + graphDim.width} 
-              y={titleHeight} 
-              width={legDim.width} 
-              height={legDim.height} 
+              ref={legRef}
+              x={yAxWidth + graphDim.width}
+              y={titleHeight}
+              width={legDim.width}
+              height={legDim.height}
               lines={lines}
-            /> 
-            : null
-          }
+            />
+          ) : null}
           <XAxis
             x={0}
             y={titleHeight + graphDim.height}

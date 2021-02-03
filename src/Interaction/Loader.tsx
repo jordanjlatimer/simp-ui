@@ -2,14 +2,11 @@ import * as React from "react";
 import "../styles/loader.sass";
 
 type LoaderProps = {
-  text?: string,
-  dimBack?: boolean
+  text?: string;
+  dimBack?: boolean;
 };
 
-export const Loader: React.FC<LoaderProps> = ({
-  text = "Loading...",
-  dimBack
-}: LoaderProps) => {
+export const Loader: React.FC<LoaderProps> = ({ text = "Loading...", dimBack }: LoaderProps) => {
   return (
     <div className={"loader" + (dimBack ? " dim-back" : "")}>
       <div className="loader-container">

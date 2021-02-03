@@ -1,0 +1,83 @@
+@import "./_globals"
+  
+.radio-input
+  width: fit-content
+
+  &-control
+    display: flex
+    flex-direction: column
+    border-radius: 2px
+    margin-top: 8px
+    width: fit-content
+    transition: all 200ms
+    
+    &.horizontal
+      flex-direction: row
+    
+    &.segmented
+      border-radius: 2px
+      border: 2px solid $base-dark
+
+  &-option
+    display: flex
+    align-items: center
+    height: fit-content
+    padding: 10px
+    cursor: pointer
+    transition: all 200ms, z-index 0ms
+
+    &:hover
+      box-shadow: 0px 0px 4px 0px $shadow-color
+    
+    &.segmented
+      color: $base-dark
+      text-align: center
+      display: block
+
+      &:hover
+        background-color: $base
+        color: white
+        box-shadow: 2px 2px 6px 0px $shadow-color
+        z-index: 2
+      
+      &.active
+        background-color: $base-dark
+        color: white
+
+        &:hover
+          box-shadow: none
+
+    &:focus
+      outline: none
+
+  &-option-label
+    display: block
+    height: fit-content
+    color: $base-dark
+    
+    &.left 
+      margin-right: 12px
+    
+    &.right
+      margin-left: 12px
+
+  &-box
+    
+    &-outer
+      display: flex
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      border: 2px solid $base-dark
+      align-items: center
+      justify-content: center
+    
+    &-inner
+      display: block
+      width: 12px
+      height: 12px
+      border-radius: 50%
+      transition: all 200ms
+      
+      &.active
+        background-color: $base-dark

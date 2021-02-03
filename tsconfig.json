@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    "module": "ES6",
+    "moduleResolution": "node",
+    "lib": ["ES6", "DOM"],
     "strict": true,
     "jsx": "react",
+    "target": "ES6",
     "outDir": "dist",
     "declaration": true
   },
   "exclude": ["node_modules"],
-  "include": ["src/index.tsx"]
+  "include": ["src"]
 }

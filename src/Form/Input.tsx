@@ -12,18 +12,18 @@ type InputProps = {
   placeholder?: string;
   prefix?: string;
   suffix?: string;
-  width?: "short" | "medium" | "long"
+  width?: "short" | "medium" | "long";
 };
 
 export const Input: React.FC<InputProps> = ({
   initialValue,
-  changeValidation = (value) => true,
-  onChange = (value) => value,
-  valueValidation = (value) => {
+  changeValidation = value => true,
+  onChange = value => value,
+  valueValidation = value => {
     return { invalid: false, message: "" };
   },
   label,
-  valueDisplay = (value) => value,
+  valueDisplay = value => value,
   password = false,
   placeholder,
   prefix,
@@ -77,9 +77,7 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className="input">
-      <div className="input-label">
-        {label}
-      </div>
+      <div className="input-label">{label}</div>
       <div className="input-container">
         <input
           className={"input-control" + (invalid ? " invalid" : "") + " " + width}
@@ -97,12 +95,7 @@ export const Input: React.FC<InputProps> = ({
         <div className="input-suffix" ref={suffixRef}>
           {suffix}
         </div>
-        <div
-          className={
-            "input-label-invalid" +
-            (showMessage && invalid && clicked && blurred ? " active" : "")
-          }
-        >
+        <div className={"input-label-invalid" + (showMessage && invalid && clicked && blurred ? " active" : "")}>
           {invMessage}
         </div>
       </div>

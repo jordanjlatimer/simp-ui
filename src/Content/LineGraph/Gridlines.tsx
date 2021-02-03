@@ -10,7 +10,15 @@ type GridlinesProps = {
   dash: string;
 };
 
-export const Gridlines: React.FC<GridlinesProps> = ({ graphHeight, graphWidth, yLines, xLines, color, width, dash }) => {
+export const Gridlines: React.FC<GridlinesProps> = ({
+  graphHeight,
+  graphWidth,
+  yLines,
+  xLines,
+  color,
+  width,
+  dash,
+}) => {
   const createPath = () => {
     const hSpacing = graphWidth / xLines;
     const vSpacing = graphHeight / (yLines + 1);

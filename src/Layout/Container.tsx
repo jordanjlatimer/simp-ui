@@ -8,7 +8,7 @@ type ContainerProps = {
   clickable?: boolean;
   stretchX?: boolean;
   flex?: boolean;
-  wrap?: boolean
+  wrap?: boolean;
   padded?: boolean;
   children?: React.ReactNode;
   column?: boolean;
@@ -41,11 +41,7 @@ export const Container: React.FC<ContainerProps> = ({
         (stretchX ? " stretch-x" : "")
       }
     >
-      {header ? (
-        <div className={"container-header" + (inverted ? " inverted" : "")}>
-          {header}
-        </div>
-      ) : null}
+      {header ? <div className={"container-header" + (inverted ? " inverted" : "")}>{header}</div> : null}
       <div
         className={
           "container-contents" +

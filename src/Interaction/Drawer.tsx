@@ -8,19 +8,10 @@ type DrawerProps = {
   children?: React.ReactNode;
 };
 
-export const Drawer: React.FC<DrawerProps> = ({
-  open,
-  position = "left",
-  callback,
-  children,
-}: DrawerProps) => {
+export const Drawer: React.FC<DrawerProps> = ({ open, position = "left", callback, children }: DrawerProps) => {
   return (
     <div className={"drawer" + (open ? " open" : "") + (" " + position)}>
-      <div
-        className={"drawer-close" + (open ? " open" : "") + (" " + position)}
-        onClick={callback}
-      >
-      </div>
+      <div className={"drawer-close" + (open ? " open" : "") + (" " + position)} onClick={callback}></div>
       {children}
     </div>
   );

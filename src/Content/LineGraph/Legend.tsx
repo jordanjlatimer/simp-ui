@@ -68,4 +68,4 @@ export const Legend = React.forwardRef<SVGSVGElement, LegendProps>(({ x, y, line
       })}
     </svg>
   );
-})
+});
