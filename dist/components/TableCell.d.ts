@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../../styles/table-cell.sass";
+import "../styles/table-cell.sass";
 declare type TableCellProps = {
     group?: "positive" | "negative" | "total";
     indent?: 1 | 2;

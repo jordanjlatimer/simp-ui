@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../../styles/table-cell.sass";
+import "../styles/table-cell.sass";
 const TableCell = ({ group, indent, colspan, header, clickable, onClick, children }) => {
     return (React.createElement("td", { className: "table-cell" +
             (group ? " " + group : "") +
