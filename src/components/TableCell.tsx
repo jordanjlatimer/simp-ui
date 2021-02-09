@@ -29,7 +29,7 @@ const TableCell: React.FC<TableCellProps> = ({
         (indent ? " indent-" + indent : "") +
         (header ? "-header" : "") +
         (clickable ? " clickable" : "") +
-        (" " + align)
+        (" align-" + align)
       }
       colSpan={colspan}
       onClick={onClick ? () => onClick() : undefined}
