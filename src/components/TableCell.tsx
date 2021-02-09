@@ -7,10 +7,20 @@ type TableCellProps = {
   colspan?: number;
   header?: boolean;
   clickable?: boolean;
+  align?: "left" | "center" | "right";
   onClick?: () => void;
 };
 
-const TableCell: React.FC<TableCellProps> = ({ group, indent, colspan, header, clickable, onClick, children }) => {
+const TableCell: React.FC<TableCellProps> = ({
+  group,
+  indent,
+  colspan,
+  header,
+  clickable,
+  align = "left",
+  onClick,
+  children,
+}) => {
   return (
     <td
       className={
@@ -18,7 +28,8 @@ const TableCell: React.FC<TableCellProps> = ({ group, indent, colspan, header, c
         (group ? " " + group : "") +
         (indent ? " indent-" + indent : "") +
         (header ? "-header" : "") +
-        (clickable ? " clickable" : "")
+        (clickable ? " clickable" : "") +
+        (" " + align)
       }
       colSpan={colspan}
       onClick={onClick ? () => onClick() : undefined}

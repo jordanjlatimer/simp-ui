@@ -6,6 +6,7 @@ declare type TableCellProps = {
     colspan?: number;
     header?: boolean;
     clickable?: boolean;
+    align?: "left" | "center" | "right";
     onClick?: () => void;
 };
 declare const TableCell: React.FC<TableCellProps>;
