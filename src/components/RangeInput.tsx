@@ -3,12 +3,13 @@ import "../styles/range-input.sass";
 
 type RangeInputProps = {
   initial?: number;
-  label: string;
+  label?: string;
   prefix?: string;
   suffix?: string;
   min: number;
   max: number;
   step?: number;
+  onChange?: (value: string) => void;
 };
 
 export const RangeInput: React.FC<RangeInputProps> = ({
@@ -19,12 +20,13 @@ export const RangeInput: React.FC<RangeInputProps> = ({
   min,
   max,
   step = 1,
+  onChange
 }: RangeInputProps) => {
   const [value, setValue] = React.useState(initial);
 
   return (
     <div className="range-input">
-      <div className="range-input-label">{label}</div>
+      {label && <div className="range-input-label">{label}</div>}
       <div className="range-input-value">{prefix + value + suffix}</div>
       <input
         className="range-input-slider"
@@ -34,10 +36,9 @@ export const RangeInput: React.FC<RangeInputProps> = ({
         step={step}
         value={value}
         onChange={(e: React.ChangeEvent) => {
-          const target = e.target as HTMLInputElement;
-          if (target) {
-            setValue(parseInt(target.value));
-          }
+          const value = (e.target as HTMLInputElement).value;
+          setValue(parseInt(value));
+          onChange && onChange(value)
         }}
       />
     </div>

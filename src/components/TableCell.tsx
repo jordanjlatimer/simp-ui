@@ -11,7 +11,7 @@ type TableCellProps = {
   onClick?: () => void;
 };
 
-const TableCell: React.FC<TableCellProps> = ({
+export const TableCell: React.FC<TableCellProps> = ({
   group,
   indent,
   colspan,
@@ -38,7 +38,3 @@ const TableCell: React.FC<TableCellProps> = ({
     </td>
   );
 };
-
-TableCell.displayName = "TableCell";
-
-export { TableCell };

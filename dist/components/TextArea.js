@@ -1,9 +1,7 @@
 import * as React from "react";
 import "../styles/textarea.sass";
-export const TextArea = ({ initialValue, onChange = value => value, valueValidation = value => {
-    return { invalid: false, message: "" };
-}, label, placeholder, width = "medium", height = "medium", }) => {
-    const [value, setValue] = React.useState(initialValue ? initialValue : "");
+export const TextArea = ({ initialValue, onChange = value => value, valueValidation = value => ({ invalid: !value, message: "" }), label, placeholder, width = "medium", height = "medium", }) => {
+    const [value, setValue] = React.useState(initialValue || "");
     const [invalid, setInvalid] = React.useState(false);
     const [invMessage, setInvMessage] = React.useState("");
     const [showMessage, setShowMessage] = React.useState(false);
@@ -20,20 +18,14 @@ export const TextArea = ({ initialValue, onChange = value => value, valueValidat
     };
     const changeFunc = (e) => {
         const target = e.target;
-        if (target) {
-            let validation = valueValidation(target.value);
-            setValue(target.value);
-            if (validation.invalid) {
-                setInvalid(true);
-                setInvMessage(validation.message);
-            }
-            else {
-                setInvalid(false);
-            }
-        }
+        setValue(target.value);
+        let validation = valueValidation(target.value);
+        setInvalid(validation.invalid);
+        setInvMessage(validation.message);
+        onChange(target.value);
     };
     return (React.createElement("div", { className: "textarea" },
-        React.createElement("div", { className: "textarea-label" }, label),
+        label && React.createElement("div", { className: "textarea-label" }, label),
         React.createElement("div", { className: "textarea-container" },
             React.createElement("textarea", { className: "textarea-control" + (invalid ? " invalid" : "") + " w-" + width + " h-" + height, onBlur: blurFunc, value: value, onFocus: focusFunc, placeholder: placeholder, ref: control, onChange: changeFunc }),
             React.createElement("div", { className: "textarea-label-invalid" + (showMessage && invalid && clicked && blurred ? " active" : "") }, invMessage))));

@@ -1,3 +1,2 @@
 import * as React from "react";
-declare const TableBody: React.FC<{}>;
-export { TableBody };
+export declare const TableBody: React.FC<{}>;

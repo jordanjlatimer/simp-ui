@@ -3,17 +3,13 @@ import * as ReactDOM from "react-dom";
 import "../styles/notice.sass";
 
 type NoticeProps = {
-  text: string;
+  text?: string;
   icon?: React.ReactNode;
   linger?: number;
-  position?: {
-    top?: string;
-    right?: string;
-    left?: string;
-  };
+  parent?: Element
 };
 
-export const Notice: React.FC<NoticeProps> = ({ text, icon, linger = 4000, position }) => {
+export const Notice: React.FC<NoticeProps> = ({ text, icon, linger = 4000, parent }) => {
   const [show, setShow] = React.useState(false);
 
   React.useEffect(() => {
@@ -22,12 +18,12 @@ export const Notice: React.FC<NoticeProps> = ({ text, icon, linger = 4000, posit
   }, []);
 
   return ReactDOM.createPortal(
-    <div className={"notice" + (show ? " show" : "")} style={position}>
+    <div className={"notice" + (show ? " show" : "")}>
       <div className={"notice-wrapper"}>
         {icon}
         {text}
       </div>
     </div>,
-    document.body
+    parent || document.body
   );
 };

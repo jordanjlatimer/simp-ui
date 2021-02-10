@@ -4,11 +4,16 @@ declare type DropdownProps = {
     label: string;
     multiple?: boolean;
     placeholder?: string;
-    options: {
+    options?: {
         value: string;
         label: string;
     }[];
     width?: "short" | "medium" | "long";
+    disabled?: boolean;
+    onChange?: (value: {
+        value: string;
+        label: string;
+    }) => void;
 };
 export declare const Dropdown: React.FC<DropdownProps>;
 export {};

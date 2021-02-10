@@ -6,8 +6,8 @@ type InputProps = {
   changeValidation?: (value: string) => boolean;
   onChange?: (value: string) => void;
   valueValidation?: (value: string) => { invalid: boolean; message: string };
-  label: string;
-  valueDisplay?: (value: string) => string;
+  label?: string;
+  valueMask?: (value: string) => string;
   password?: boolean;
   placeholder?: string;
   prefix?: string;
@@ -17,20 +17,18 @@ type InputProps = {
 
 export const Input: React.FC<InputProps> = ({
   initialValue,
-  changeValidation = value => true,
-  onChange = value => value,
-  valueValidation = value => {
-    return { invalid: false, message: "" };
-  },
+  changeValidation,
+  onChange,
+  valueValidation,
   label,
-  valueDisplay = value => value,
-  password = false,
+  valueMask,
+  password,
   placeholder,
   prefix,
   suffix,
   width = "medium",
 }: InputProps) => {
-  const [value, setValue] = React.useState(initialValue ? initialValue : "");
+  const [value, setValue] = React.useState(initialValue || "");
   const [invalid, setInvalid] = React.useState(false);
   const [invMessage, setInvMessage] = React.useState("");
   const [showMessage, setShowMessage] = React.useState(false);
@@ -40,14 +38,9 @@ export const Input: React.FC<InputProps> = ({
   const suffixRef = React.useRef<HTMLDivElement>(null);
   const control = React.useRef<HTMLInputElement>(null);
 
-  const blurFunc = () => {
-    setShowMessage(false);
-    setBlurred(true);
-  };
-  const focusFunc = () => {
-    setShowMessage(true);
-    setClicked(true);
-  };
+  const blurFunc = () => (setShowMessage(false), setBlurred(true))
+
+  const focusFunc = () => (setShowMessage(true), setClicked(true))
 
   React.useLayoutEffect(() => {
     if (control.current && prefixRef.current) {
@@ -59,30 +52,26 @@ export const Input: React.FC<InputProps> = ({
   }, []);
 
   const changeFunc = (e: React.ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    if (target) {
-      if (target.value.split("").every(changeValidation)) {
-        setValue(target.value);
-        onChange(target.value);
-      }
-      let validation = valueValidation(target.value);
-      if (validation.invalid) {
-        setInvalid(true);
-        setInvMessage(validation.message);
-      } else {
-        setInvalid(false);
-      }
+    const value = (e.target as HTMLInputElement).value;
+    if (value.split("").every(value => (changeValidation && changeValidation(value)) || true)) {
+      setValue(value);
+      onChange && onChange(value);
+    }
+    if (valueValidation){
+      let validation = valueValidation(value);
+      setInvalid(validation && validation.invalid);
+      setInvMessage(validation.message);
     }
   };
 
   return (
     <div className="input">
-      <div className="input-label">{label}</div>
+      {label && <div className="input-label">{label}</div>}
       <div className="input-container">
         <input
           className={"input-control" + (invalid ? " invalid" : "") + " " + width}
           onBlur={blurFunc}
-          value={valueDisplay(value)}
+          value={(valueMask && valueMask(value)) || value}
           onFocus={focusFunc}
           type={password ? "password" : "text"}
           placeholder={placeholder}

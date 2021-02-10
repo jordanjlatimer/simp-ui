@@ -1,6 +1,7 @@
 import * as React from "react";
+import "../styles/table-row.sass";
 declare type TableRowProps = {
     bold?: boolean;
 };
-declare const TableRow: React.FC<TableRowProps>;
-export { TableRow };
+export declare const TableRow: React.FC<TableRowProps>;
+export {};

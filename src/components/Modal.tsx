@@ -3,17 +3,12 @@ import * as ReactDOM from "react-dom";
 import "../styles/modal.sass";
 
 type ModalProps = {
-  open: boolean;
+  open?: boolean;
   children?: React.ReactNode;
-  position?: {
-    top?: string;
-    right?: string;
-    bottom?: string;
-    left?: string;
-  };
+  parent?: Element
 };
 
-export const Modal: React.FC<ModalProps> = ({ open, children, position }: ModalProps) => {
+export const Modal: React.FC<ModalProps> = ({ open = false, children, parent }: ModalProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -21,9 +16,9 @@ export const Modal: React.FC<ModalProps> = ({ open, children, position }: ModalP
   }, [open]);
 
   return ReactDOM.createPortal(
-    <div className={isOpen ? "modal open" : "modal"} style={{ ...position }}>
+    <div className={isOpen ? "modal open" : "modal"}>
       <div className="modal-contents">{children}</div>
     </div>,
-    document.body
+    parent || document.body
   );
 };

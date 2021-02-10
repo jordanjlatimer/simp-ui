@@ -1,6 +1,5 @@
 import * as React from "react";
-const TableRow = ({ children, bold }) => {
+import "../styles/table-row.sass";
+export const TableRow = ({ bold, children }) => {
     return React.createElement("tr", { className: bold ? "table-row-bold" : "" }, children);
 };
-TableRow.displayName = "TableRow";
-export { TableRow };

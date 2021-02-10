@@ -7,7 +7,7 @@ declare type TextAreaProps = {
         invalid: boolean;
         message: string;
     };
-    label: string;
+    label?: string;
     placeholder?: string;
     width?: "short" | "medium" | "long";
     height?: "short" | "medium" | "long";

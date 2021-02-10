@@ -9,5 +9,5 @@ declare type TableCellProps = {
     align?: "left" | "center" | "right";
     onClick?: () => void;
 };
-declare const TableCell: React.FC<TableCellProps>;
-export { TableCell };
+export declare const TableCell: React.FC<TableCellProps>;
+export {};
