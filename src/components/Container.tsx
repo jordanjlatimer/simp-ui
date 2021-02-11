@@ -29,30 +29,28 @@ export const Container: React.FC<ContainerProps> = ({
   column,
   header,
   inverted,
-}: ContainerProps) => {
-  return (
+}: ContainerProps) => (
+  <div
+    className={
+      "container" +
+      (raised ? " raised" : "") +
+      (bordered ? " bordered" : "") +
+      (margined ? " margined" : "") +
+      (clickable ? " clickable" : "") +
+      (stretchX ? " stretch-x" : "")
+    }
+  >
+    {header && <div className={"container-header" + (inverted ? " inverted" : "")}>{header}</div>}
     <div
       className={
-        "container" +
-        (raised ? " raised" : "") +
-        (bordered ? " bordered" : "") +
-        (margined ? " margined" : "") +
-        (clickable ? " clickable" : "") +
-        (stretchX ? " stretch-x" : "")
+        "container-contents" +
+        (flex ? " flex" : "") +
+        (wrap ? " wrap" : "") +
+        (column ? " column" : "") +
+        (padded ? " padded" : "")
       }
     >
-      {header ? <div className={"container-header" + (inverted ? " inverted" : "")}>{header}</div> : null}
-      <div
-        className={
-          "container-contents" +
-          (flex ? " flex" : "") +
-          (wrap ? " wrap" : "") +
-          (column ? " column" : "") +
-          (padded ? " padded" : "")
-        }
-      >
-        {children}
-      </div>
+      {children}
     </div>
-  );
-};
+  </div>
+);

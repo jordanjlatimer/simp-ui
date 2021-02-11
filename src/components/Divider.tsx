@@ -5,6 +5,4 @@ type DividerProps = {
   margin?: "small" | "medium" | "large";
 };
 
-export const Divider: React.FC<DividerProps> = ({ margin = "medium" }) => {
-  return <hr className={"divider" + " " + margin} />;
-};
+export const Divider: React.FC<DividerProps> = ({ margin = "medium" }) => <hr className={"divider" + " " + margin} />;

@@ -2,7 +2,7 @@ import * as React from "react";
 import "../styles/datepicker.sass";
 
 type DatepickerProps = {
-  label: string;
+  label?: string;
   placeholder?: string;
 };
 
@@ -22,19 +22,16 @@ export const Datepicker: React.FC<DatepickerProps> = ({ label, placeholder }: Da
   }, [open]);
 
   const toggle = (e: MouseEvent) => {
-    if (!open && control.current?.contains(e.target as Node)) {
-      setOpen(true);
-    } else if (open && !picker.current?.contains(e.target as Node)) {
-      setOpen(false);
-    }
+    const target = e.target as Node;
+    setOpen(!open && (control.current ? control.current.contains(target) : false));
   };
 
   const generateTable = () => {
-    let monthDays = new Date(year, month + 1, 0).getDate();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
     let returnArray = [];
-    for (let i = 0; i <= monthDays; i++) {
+    for (let i = 0; i <= daysInMonth; i++) {
       if (i === 0) {
-        let weekDays = new Date(year, month, i).getDay();
+        const weekDays = new Date(year, month, i).getDay();
         if (weekDays !== 6) {
           for (let j = 0; j <= weekDays; j++) {
             returnArray.push(<div key={j + "p"} className="datepicker-picker-days-day" />);
@@ -57,7 +54,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({ label, placeholder }: Da
 
   return (
     <div className="datepicker">
-      <div className="datepicker-label">{label}</div>
+      {label && <div className="datepicker-label">{label}</div>}
       <div>
         <div className={"datepicker-control" + (day > 0 ? " selected" : "")} tabIndex={0} ref={control}>
           {day < 1

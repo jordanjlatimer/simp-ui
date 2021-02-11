@@ -6,7 +6,7 @@ type NoticeProps = {
   text?: string;
   icon?: React.ReactNode;
   linger?: number;
-  parent?: Element
+  parent?: Element;
 };
 
 export const Notice: React.FC<NoticeProps> = ({ text, icon, linger = 4000, parent }) => {

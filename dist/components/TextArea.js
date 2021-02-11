@@ -1,6 +1,6 @@
 import * as React from "react";
 import "../styles/textarea.sass";
-export const TextArea = ({ initialValue, onChange = value => value, valueValidation = value => ({ invalid: !value, message: "" }), label, placeholder, width = "medium", height = "medium", }) => {
+export const TextArea = ({ initialValue, onChange, valueValidation, label, placeholder, width = "medium", height = "medium", }) => {
     const [value, setValue] = React.useState(initialValue || "");
     const [invalid, setInvalid] = React.useState(false);
     const [invMessage, setInvMessage] = React.useState("");
@@ -17,12 +17,14 @@ export const TextArea = ({ initialValue, onChange = value => value, valueValidat
         setClicked(true);
     };
     const changeFunc = (e) => {
-        const target = e.target;
-        setValue(target.value);
-        let validation = valueValidation(target.value);
-        setInvalid(validation.invalid);
-        setInvMessage(validation.message);
-        onChange(target.value);
+        const target = e.target.value;
+        setValue(value);
+        if (valueValidation) {
+            let validation = valueValidation(value);
+            setInvalid(validation && validation.invalid);
+            setInvMessage(validation.message);
+        }
+        onChange && onChange(value);
     };
     return (React.createElement("div", { className: "textarea" },
         label && React.createElement("div", { className: "textarea-label" }, label),

@@ -10,16 +10,12 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-export const Button: React.FC<ButtonProps> = ({ text, color = "green", icon, marginRight, floatRight, onClick }) => {
-  return (
-    <div
-      className={
-        "button" + (color ? " " + color : "") + (marginRight ? " m-right" : "") + (floatRight ? " f-right" : "")
-      }
-      onClick={onClick}
-    >
-      {icon ? icon : null}
-      {text}
-    </div>
-  );
-};
+export const Button: React.FC<ButtonProps> = ({ text, color = "green", icon, marginRight, floatRight, onClick }) => (
+  <div
+    className={"button" + " " + color + (marginRight ? " m-right" : "") + (floatRight ? " f-right" : "")}
+    onClick={onClick}
+  >
+    {icon}
+    {text}
+  </div>
+);

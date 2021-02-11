@@ -4,11 +4,12 @@ declare type RadioInputProps = {
     label?: string;
     segmented?: boolean;
     horizontal?: boolean;
-    options: {
+    options?: {
         label: string;
         value: string;
     }[];
     optionLabels?: "left" | "right";
+    onChange?: (value: string) => void;
 };
 export declare const RadioInput: React.FC<RadioInputProps>;
 export {};

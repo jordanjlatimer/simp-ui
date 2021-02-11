@@ -1,11 +1,16 @@
 import * as React from "react";
 import "../styles/dropdown.sass";
 
+type option = {
+  value: string;
+  label: string;
+};
+
 type DropdownProps = {
   label?: string;
   multiple?: boolean;
   placeholder?: string;
-  options?: { value: string; label: string }[];
+  options?: option[];
   width?: "short" | "medium" | "long";
   disabled?: boolean;
   onChange?: (value: { value: string; label: string }) => void;
@@ -21,7 +26,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   onChange,
 }: DropdownProps) => {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState([] as DropdownProps["options"]);
+  const [value, setValue] = React.useState([] as option[]);
   const [over, setOver] = React.useState(false);
   const control = React.useRef<HTMLDivElement>(null);
   const menu = React.useRef<HTMLDivElement>(null);
@@ -34,17 +39,16 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }, []);
 
   React.useLayoutEffect(() => {
-    if (control.current) {
-      control.current.scrollWidth > control.current.clientWidth ? setOver(true) : setOver(false);
-    }
+    control.current && setOver(control.current.scrollWidth > control.current.clientWidth);
   }, [value]);
 
   const toggle = (e: MouseEvent) => {
-    if (control.current && menu.current) {
-      if (!control.current.contains(e.target as Node) && !menu.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
+    let target = e.target as Node;
+    control.current &&
+      menu.current &&
+      !control.current.contains(target) &&
+      !menu.current.contains(target) &&
+      setOpen(false);
   };
 
   return (
@@ -56,59 +60,43 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onClick={() => setOpen(!open)}
         tabIndex={0}
       >
-        {!disabled ? (
-          multiple ? (
-            value ? (
-              value.length > 0 ? (
-                over ? (
-                  <div className="dropdown-value multiple">{value.length + " Items Selected"}</div>
-                ) : (
-                  value.map(selection => (
-                    <div key={selection.value} className="dropdown-value multiple">
-                      {selection.label}
-                    </div>
-                  ))
-                )
-              ) : (
-                <div className="dropdown-value">{placeholder}</div>
-              )
-            ) : (
-              <div className="dropdown-value">{placeholder}</div>
-            )
-          ) : (
-            <div className="dropdown-value">{value ? (value[0] ? value[0].label : placeholder) : placeholder}</div>
-          )
-        ) : (
-          <div className="dropdown-value">{placeholder}</div>
+        {(disabled || !value[0]) && <div className="dropdown-value">{placeholder}</div>}
+        {!multiple && !disabled && value[0] && <div className="dropdown-value">{value[0].label}</div>}
+        {multiple && !disabled && over && (
+          <div className="dropdown-value multiple">{value.length + " Items Selected"}</div>
         )}
+        {multiple &&
+          !disabled &&
+          !over &&
+          value.map(selection => (
+            <div key={selection.value} className="dropdown-value multiple">
+              {selection.label}
+            </div>
+          ))}
       </div>
       <div ref={menu} className={"dropdown-menu" + (open ? " open" : "")}>
-        {options?.map(option => {
-          return (
-            <div
-              className={
-                "dropdown-item" + (value?.some(selection => selection.value === option.value) ? " selected" : "")
-              }
-              onClick={() => {
-                setValue(
-                  multiple
-                    ? value
-                      ? value.every(selection => selection.value !== option.value)
-                        ? [...value, { label: option.label, value: option.value }]
-                        : [...value.filter(selection => selection.value !== option.value)]
-                      : [{ label: option.label, value: option.value }]
-                    : [{ label: option.label, value: option.value }]
-                );
-                setOpen(multiple ? true : false);
-                setOver(false);
-                onChange?.(option);
-              }}
-              key={option.value}
-            >
-              {option.label}
-            </div>
-          );
-        })}
+        {options?.map(option => (
+          <div
+            className={
+              "dropdown-item" + (value?.some(selection => selection.value === option.value) ? " selected" : "")
+            }
+            onClick={() => {
+              setValue(
+                multiple
+                  ? value.every(selection => selection.value !== option.value)
+                    ? [...value, { label: option.label, value: option.value }]
+                    : [...value.filter(selection => selection.value !== option.value)]
+                  : [{ label: option.label, value: option.value }]
+              );
+              !multiple && setOpen(false);
+              setOver(false);
+              onChange?.(option);
+            }}
+            key={option.value}
+          >
+            {option.label}
+          </div>
+        ))}
       </div>
     </div>
   );

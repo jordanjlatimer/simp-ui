@@ -5,7 +5,7 @@ import "../styles/modal.sass";
 type ModalProps = {
   open?: boolean;
   children?: React.ReactNode;
-  parent?: Element
+  parent?: Element;
 };
 
 export const Modal: React.FC<ModalProps> = ({ open = false, children, parent }: ModalProps) => {

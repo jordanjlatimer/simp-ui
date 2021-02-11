@@ -38,9 +38,9 @@ export const Input: React.FC<InputProps> = ({
   const suffixRef = React.useRef<HTMLDivElement>(null);
   const control = React.useRef<HTMLInputElement>(null);
 
-  const blurFunc = () => (setShowMessage(false), setBlurred(true))
+  const blurFunc = () => (setShowMessage(false), setBlurred(true));
 
-  const focusFunc = () => (setShowMessage(true), setClicked(true))
+  const focusFunc = () => (setShowMessage(true), setClicked(true));
 
   React.useLayoutEffect(() => {
     if (control.current && prefixRef.current) {
@@ -52,14 +52,14 @@ export const Input: React.FC<InputProps> = ({
   }, []);
 
   const changeFunc = (e: React.ChangeEvent) => {
-    const value = (e.target as HTMLInputElement).value;
-    if (value.split("").every(value => (changeValidation && changeValidation(value)) || true)) {
-      setValue(value);
-      onChange && onChange(value);
+    const targetValue = (e.target as HTMLInputElement).value;
+    if (targetValue.split("").every(value => (changeValidation && changeValidation(targetValue)) || true)) {
+      setValue(targetValue);
+      onChange && onChange(targetValue);
     }
-    if (valueValidation){
-      let validation = valueValidation(value);
-      setInvalid(validation && validation.invalid);
+    if (valueValidation) {
+      let validation = valueValidation(targetValue);
+      setInvalid(validation.invalid);
       setInvMessage(validation.message);
     }
   };

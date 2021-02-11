@@ -2,25 +2,21 @@ import * as React from "react";
 import "../styles/checkbox.sass";
 
 type CheckboxProps = {
-  label: string;
+  label?: string;
   initChecked?: boolean;
-  labelPosition?: string;
+  labelPosition?: "left" | "right";
 };
 
-export const Checkbox: React.FC<CheckboxProps> = ({
-  label,
-  initChecked = false,
-  labelPosition = "right",
-}: CheckboxProps) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ label, initChecked, labelPosition = "right" }: CheckboxProps) => {
   const [checked, setChecked] = React.useState(initChecked);
 
   return (
     <div className="checkbox" onClick={() => setChecked(!checked)} tabIndex={0}>
-      {labelPosition === "left" ? <div className="checkbox-label left">{label}</div> : null}
+      {labelPosition === "left" && <div className="checkbox-label left">{label}</div>}
       <div className="checkbox-outer">
         <div className={"checkbox-inner" + (checked ? " checked" : "")} />
       </div>
-      {labelPosition === "left" ? null : <div className="checkbox-label right">{label}</div>}
+      {labelPosition === "right" && <div className="checkbox-label right">{label}</div>}
     </div>
   );
 };

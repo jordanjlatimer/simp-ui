@@ -14,20 +14,15 @@ export const Datepicker = ({ label, placeholder }) => {
         };
     }, [open]);
     const toggle = (e) => {
-        var _a, _b;
-        if (!open && ((_a = control.current) === null || _a === void 0 ? void 0 : _a.contains(e.target))) {
-            setOpen(true);
-        }
-        else if (open && !((_b = picker.current) === null || _b === void 0 ? void 0 : _b.contains(e.target))) {
-            setOpen(false);
-        }
+        const target = e.target;
+        setOpen(!open && (control.current ? control.current.contains(target) : false));
     };
     const generateTable = () => {
-        let monthDays = new Date(year, month + 1, 0).getDate();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
         let returnArray = [];
-        for (let i = 0; i <= monthDays; i++) {
+        for (let i = 0; i <= daysInMonth; i++) {
             if (i === 0) {
-                let weekDays = new Date(year, month, i).getDay();
+                const weekDays = new Date(year, month, i).getDay();
                 if (weekDays !== 6) {
                     for (let j = 0; j <= weekDays; j++) {
                         returnArray.push(React.createElement("div", { key: j + "p", className: "datepicker-picker-days-day" }));
@@ -41,7 +36,7 @@ export const Datepicker = ({ label, placeholder }) => {
         return returnArray;
     };
     return (React.createElement("div", { className: "datepicker" },
-        React.createElement("div", { className: "datepicker-label" }, label),
+        label && React.createElement("div", { className: "datepicker-label" }, label),
         React.createElement("div", null,
             React.createElement("div", { className: "datepicker-control" + (day > 0 ? " selected" : ""), tabIndex: 0, ref: control }, day < 1
                 ? placeholder

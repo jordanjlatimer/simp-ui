@@ -20,21 +20,19 @@ export const TableCell: React.FC<TableCellProps> = ({
   align = "left",
   onClick,
   children,
-}) => {
-  return (
-    <td
-      className={
-        "table-cell" +
-        (group ? " " + group : "") +
-        (indent ? " indent-" + indent : "") +
-        (header ? "-header" : "") +
-        (clickable ? " clickable" : "") +
-        (" align-" + align)
-      }
-      colSpan={colspan}
-      onClick={onClick ? () => onClick() : undefined}
-    >
-      {children}
-    </td>
-  );
-};
+}) => (
+  <td
+    className={
+      "table-cell" +
+      (group ? " " + group : "") +
+      (indent ? " indent-" + indent : "") +
+      (header ? "-header" : "") +
+      (clickable ? " clickable" : "") +
+      (" align-" + align)
+    }
+    colSpan={colspan}
+    onClick={onClick ? () => onClick() : undefined}
+  >
+    {children}
+  </td>
+);

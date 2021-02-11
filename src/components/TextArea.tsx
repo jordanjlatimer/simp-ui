@@ -39,14 +39,14 @@ export const TextArea: React.FC<TextAreaProps> = ({
   };
 
   const changeFunc = (e: React.ChangeEvent) => {
-    const target = (e.target as HTMLTextAreaElement).value;
-    setValue(value);
-    if(valueValidation){
-      let validation = valueValidation(value);
+    const targetValue = (e.target as HTMLTextAreaElement).value;
+    setValue(targetValue);
+    if (valueValidation) {
+      let validation = valueValidation(targetValue);
       setInvalid(validation && validation.invalid);
       setInvMessage(validation.message);
     }
-    onChange && onChange(value);
+    onChange && onChange(targetValue);
   };
 
   return (

@@ -5,9 +5,9 @@ type RadioInputProps = {
   label?: string;
   segmented?: boolean;
   horizontal?: boolean;
-  options?: { 
-    label: string; 
-    value: string 
+  options?: {
+    label: string;
+    value: string;
   }[];
   optionLabels?: "left" | "right";
   onChange?: (value: string) => void;
@@ -19,7 +19,7 @@ export const RadioInput: React.FC<RadioInputProps> = ({
   horizontal,
   options,
   optionLabels = "right",
-  onChange
+  onChange,
 }: RadioInputProps) => {
   const [selected, setSelected] = React.useState<string | undefined>(undefined);
 
@@ -37,7 +37,11 @@ export const RadioInput: React.FC<RadioInputProps> = ({
               {option.label}
             </div>
           ) : (
-            <div className="radio-input-option" onClick={() => (setSelected(option.value), onChange && onChange(option.value))} tabIndex={0}>
+            <div
+              className="radio-input-option"
+              onClick={() => (setSelected(option.value), onChange && onChange(option.value))}
+              tabIndex={0}
+            >
               {optionLabels === "left" && <div className="radio-input-option-label left">{option.label}</div>}
               <div className="radio-input-box-outer">
                 <div className={"radio-input-box-inner" + (selected === option.value ? " active" : "")} />

@@ -6,34 +6,34 @@ type AccordionProps = {
   multiple?: boolean;
 };
 
-export const Accordion: React.FC<AccordionProps> = ({ items, multiple = false }: AccordionProps) => {
-  const [expanded, setExpanded] = React.useState([] as number[]);
+export const Accordion: React.FC<AccordionProps> = ({ items, multiple }: AccordionProps) => {
+  const [expanded, setExpanded] = React.useState([] as string[]);
 
   return (
     <div>
-      {items.map((item, i) => {
-        return (
-          <div>
-            <div
-              className={"accordion-control" + (i === 0 ? " first" : "") + (i === items.length - 1 ? " last" : "")}
-              onClick={() => {
+      {items.map(item => (
+        <div>
+          <div
+            className="accordion-control"
+            onClick={() =>
+              setExpanded(
                 multiple
-                  ? expanded.indexOf(i) !== -1
-                    ? setExpanded(expanded.filter(value => value !== i))
-                    : setExpanded([...expanded, i])
-                  : expanded.indexOf(i) !== -1
-                  ? setExpanded([])
-                  : setExpanded([i]);
-              }}
-            >
-              <div className="accordion-label">{item.label}</div>
-            </div>
-            <div className={"accordion-contents" + (expanded.indexOf(i) !== -1 ? " open" : "")}>
-              <div className="accordion-contents-inner">{item.contents}</div>
-            </div>
+                  ? expanded.indexOf(item.label) >= 0
+                    ? expanded.filter(value => value !== item.label)
+                    : [...expanded, item.label]
+                  : expanded.indexOf(item.label) >= 0
+                  ? []
+                  : [item.label]
+              )
+            }
+          >
+            <div className="accordion-label">{item.label}</div>
           </div>
-        );
-      })}
+          <div className={"accordion-contents" + (expanded.indexOf(item.label) >= 0 ? " open" : "")}>
+            <div className="accordion-contents-inner">{item.contents}</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

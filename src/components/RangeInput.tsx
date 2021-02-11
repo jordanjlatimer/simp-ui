@@ -20,7 +20,7 @@ export const RangeInput: React.FC<RangeInputProps> = ({
   min,
   max,
   step = 1,
-  onChange
+  onChange,
 }: RangeInputProps) => {
   const [value, setValue] = React.useState(initial);
 
@@ -38,7 +38,7 @@ export const RangeInput: React.FC<RangeInputProps> = ({
         onChange={(e: React.ChangeEvent) => {
           const value = (e.target as HTMLInputElement).value;
           setValue(parseInt(value));
-          onChange && onChange(value)
+          onChange && onChange(value);
         }}
       />
     </div>

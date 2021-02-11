@@ -8,8 +8,8 @@ declare type InputProps = {
         invalid: boolean;
         message: string;
     };
-    label: string;
-    valueDisplay?: (value: string) => string;
+    label?: string;
+    valueMask?: (value: string) => string;
     password?: boolean;
     placeholder?: string;
     prefix?: string;
