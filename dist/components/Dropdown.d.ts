@@ -11,6 +11,7 @@ declare type DropdownProps = {
     options?: option[];
     width?: "short" | "medium" | "long";
     disabled?: boolean;
+    value?: option[];
     onChange?: (value: {
         value: string;
         label: string;

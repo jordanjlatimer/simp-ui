@@ -53,7 +53,7 @@ export const Input: React.FC<InputProps> = ({
 
   const changeFunc = (e: React.ChangeEvent) => {
     const targetValue = (e.target as HTMLInputElement).value;
-    if (targetValue.split("").every(value => (changeValidation && changeValidation(targetValue)) || true)) {
+    if (targetValue.split("").every(value => changeValidation && changeValidation(value))) {
       setValue(targetValue);
       onChange && onChange(targetValue);
     }

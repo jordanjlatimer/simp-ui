@@ -13,6 +13,7 @@ type DropdownProps = {
   options?: option[];
   width?: "short" | "medium" | "long";
   disabled?: boolean;
+  value?: option[];
   onChange?: (value: { value: string; label: string }) => void;
 };
 
@@ -24,9 +25,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
   width = "medium",
   disabled,
   onChange,
+  value,
 }: DropdownProps) => {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState([] as option[]);
   const [over, setOver] = React.useState(false);
   const control = React.useRef<HTMLDivElement>(null);
   const menu = React.useRef<HTMLDivElement>(null);
@@ -60,15 +61,15 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onClick={() => setOpen(!open)}
         tabIndex={0}
       >
-        {(disabled || !value[0]) && <div className="dropdown-value">{placeholder}</div>}
-        {!multiple && !disabled && value[0] && <div className="dropdown-value">{value[0].label}</div>}
+        {(disabled || !value?.[0]) && <div className="dropdown-value">{placeholder}</div>}
+        {!multiple && !disabled && value?.[0] && <div className="dropdown-value">{value[0].label}</div>}
         {multiple && !disabled && over && (
-          <div className="dropdown-value multiple">{value.length + " Items Selected"}</div>
+          <div className="dropdown-value multiple">{value?.length + " Items Selected"}</div>
         )}
         {multiple &&
           !disabled &&
           !over &&
-          value.map(selection => (
+          value?.map(selection => (
             <div key={selection.value} className="dropdown-value multiple">
               {selection.label}
             </div>
@@ -78,19 +79,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
         {options?.map(option => (
           <div
             className={
-              "dropdown-item" + (value?.some(selection => selection.value === option.value) ? " selected" : "")
+              "dropdown-item" + (value?.some(selection => selection?.value === option?.value) ? " selected" : "")
             }
             onClick={() => {
-              setValue(
-                multiple
-                  ? value.every(selection => selection.value !== option.value)
-                    ? [...value, { label: option.label, value: option.value }]
-                    : [...value.filter(selection => selection.value !== option.value)]
-                  : [{ label: option.label, value: option.value }]
-              );
               !multiple && setOpen(false);
               setOver(false);
-              onChange?.(option);
+              !value?.some(selection => selection?.value === option?.value) && onChange?.(option);
             }}
             key={option.value}
           >

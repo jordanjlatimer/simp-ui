@@ -3,7 +3,7 @@ import "../styles/table-cell.sass";
 
 type TableCellProps = {
   group?: "positive" | "negative" | "total";
-  indent?: 1 | 2;
+  indent?: number;
   colspan?: number;
   header?: boolean;
   clickable?: boolean;
@@ -25,13 +25,13 @@ export const TableCell: React.FC<TableCellProps> = ({
     className={
       "table-cell" +
       (group ? " " + group : "") +
-      (indent ? " indent-" + indent : "") +
       (header ? "-header" : "") +
       (clickable ? " clickable" : "") +
       (" align-" + align)
     }
     colSpan={colspan}
     onClick={onClick ? () => onClick() : undefined}
+    style={indent ? { paddingLeft: indent * 30 + "px" } : undefined}
   >
     {children}
   </td>

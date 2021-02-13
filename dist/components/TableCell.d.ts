@@ -2,7 +2,7 @@ import * as React from "react";
 import "../styles/table-cell.sass";
 declare type TableCellProps = {
     group?: "positive" | "negative" | "total";
-    indent?: 1 | 2;
+    indent?: number;
     colspan?: number;
     header?: boolean;
     clickable?: boolean;

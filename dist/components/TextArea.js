@@ -17,14 +17,14 @@ export const TextArea = ({ initialValue, onChange, valueValidation, label, place
         setClicked(true);
     };
     const changeFunc = (e) => {
-        const target = e.target.value;
-        setValue(value);
+        const targetValue = e.target.value;
+        setValue(targetValue);
         if (valueValidation) {
-            let validation = valueValidation(value);
+            let validation = valueValidation(targetValue);
             setInvalid(validation && validation.invalid);
             setInvMessage(validation.message);
         }
-        onChange && onChange(value);
+        onChange && onChange(targetValue);
     };
     return (React.createElement("div", { className: "textarea" },
         label && React.createElement("div", { className: "textarea-label" }, label),

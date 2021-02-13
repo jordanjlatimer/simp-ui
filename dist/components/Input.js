@@ -21,13 +21,13 @@ export const Input = ({ initialValue, changeValidation, onChange, valueValidatio
         }
     }, []);
     const changeFunc = (e) => {
-        const value = e.target.value;
-        if (value.split("").every(value => (changeValidation && changeValidation(value)) || true)) {
-            setValue(value);
-            onChange && onChange(value);
+        const targetValue = e.target.value;
+        if (targetValue.split("").every(value => changeValidation && changeValidation(value))) {
+            setValue(targetValue);
+            onChange && onChange(targetValue);
         }
         if (valueValidation) {
-            let validation = valueValidation(value);
+            let validation = valueValidation(targetValue);
             setInvalid(validation.invalid);
             setInvMessage(validation.message);
         }

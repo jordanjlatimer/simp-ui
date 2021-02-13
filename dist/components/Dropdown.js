@@ -1,8 +1,7 @@
 import * as React from "react";
 import "../styles/dropdown.sass";
-export const Dropdown = ({ label, multiple, placeholder, options, width = "medium", disabled, onChange, }) => {
+export const Dropdown = ({ label, multiple, placeholder, options, width = "medium", disabled, onChange, value, }) => {
     const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState([]);
     const [over, setOver] = React.useState(false);
     const control = React.useRef(null);
     const menu = React.useRef(null);
@@ -26,21 +25,15 @@ export const Dropdown = ({ label, multiple, placeholder, options, width = "mediu
     return (React.createElement("div", { className: "dropdown" + " " + width + (disabled ? " disabled" : "") },
         label && React.createElement("div", { className: "dropdown-label" }, label),
         React.createElement("div", { ref: control, className: "dropdown-control" + (open ? " open" : ""), onClick: () => setOpen(!open), tabIndex: 0 },
-            (disabled || !value[0]) && React.createElement("div", { className: "dropdown-value" }, placeholder),
-            !multiple && !disabled && value[0] && React.createElement("div", { className: "dropdown-value" }, value[0].label),
-            multiple && !disabled && over && (React.createElement("div", { className: "dropdown-value multiple" }, value.length + " Items Selected")),
+            (disabled || !(value === null || value === void 0 ? void 0 : value[0])) && React.createElement("div", { className: "dropdown-value" }, placeholder),
+            !multiple && !disabled && (value === null || value === void 0 ? void 0 : value[0]) && React.createElement("div", { className: "dropdown-value" }, value[0].label),
+            multiple && !disabled && over && (React.createElement("div", { className: "dropdown-value multiple" }, (value === null || value === void 0 ? void 0 : value.length) + " Items Selected")),
             multiple &&
                 !disabled &&
-                !over &&
-                value.map(selection => (React.createElement("div", { key: selection.value, className: "dropdown-value multiple" }, selection.label)))),
-        React.createElement("div", { ref: menu, className: "dropdown-menu" + (open ? " open" : "") }, options === null || options === void 0 ? void 0 : options.map(option => (React.createElement("div", { className: "dropdown-item" + ((value === null || value === void 0 ? void 0 : value.some(selection => selection.value === option.value)) ? " selected" : ""), onClick: () => {
-                setValue(multiple
-                    ? value.every(selection => selection.value !== option.value)
-                        ? [...value, { label: option.label, value: option.value }]
-                        : [...value.filter(selection => selection.value !== option.value)]
-                    : [{ label: option.label, value: option.value }]);
+                !over && (value === null || value === void 0 ? void 0 : value.map(selection => (React.createElement("div", { key: selection.value, className: "dropdown-value multiple" }, selection.label))))),
+        React.createElement("div", { ref: menu, className: "dropdown-menu" + (open ? " open" : "") }, options === null || options === void 0 ? void 0 : options.map(option => (React.createElement("div", { className: "dropdown-item" + ((value === null || value === void 0 ? void 0 : value.some(selection => (selection === null || selection === void 0 ? void 0 : selection.value) === (option === null || option === void 0 ? void 0 : option.value))) ? " selected" : ""), onClick: () => {
                 !multiple && setOpen(false);
                 setOver(false);
-                onChange === null || onChange === void 0 ? void 0 : onChange(option);
+                !(value === null || value === void 0 ? void 0 : value.some(selection => (selection === null || selection === void 0 ? void 0 : selection.value) === (option === null || option === void 0 ? void 0 : option.value))) && (onChange === null || onChange === void 0 ? void 0 : onChange(option));
             }, key: option.value }, option.label))))));
 };
