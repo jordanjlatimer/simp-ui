@@ -7,6 +7,7 @@ type TableCellProps = {
   colspan?: number;
   header?: boolean;
   clickable?: boolean;
+  padded?: boolean;
   align?: "left" | "center" | "right";
   onClick?: () => void;
 };
@@ -17,6 +18,7 @@ export const TableCell: React.FC<TableCellProps> = ({
   colspan,
   header,
   clickable,
+  padded = true,
   align = "left",
   onClick,
   children,
@@ -27,7 +29,8 @@ export const TableCell: React.FC<TableCellProps> = ({
       (group ? " " + group : "") +
       (header ? "-header" : "") +
       (clickable ? " clickable" : "") +
-      (" align-" + align)
+      (" align-" + align) +
+      (padded ? " padded" : "")
     }
     colSpan={colspan}
     onClick={onClick ? () => onClick() : undefined}

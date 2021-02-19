@@ -6,6 +6,7 @@ declare type TableCellProps = {
     colspan?: number;
     header?: boolean;
     clickable?: boolean;
+    padded?: boolean;
     align?: "left" | "center" | "right";
     onClick?: () => void;
 };

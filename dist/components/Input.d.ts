@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../styles/input.sass";
 declare type InputProps = {
-    initialValue?: string;
+    value?: string;
     changeValidation?: (value: string) => boolean;
     onChange?: (value: string) => void;
     valueValidation?: (value: string) => {
@@ -15,6 +15,12 @@ declare type InputProps = {
     prefix?: string;
     suffix?: string;
     width?: "short" | "medium" | "long";
+    margined?: boolean;
+    bordered?: boolean;
+    stretchy?: boolean;
+    changeHighlight?: boolean;
+    readOnly?: boolean;
+    blurFunc?: () => void;
 };
 export declare const Input: React.FC<InputProps>;
 export {};

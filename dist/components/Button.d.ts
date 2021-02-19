@@ -6,6 +6,7 @@ declare type ButtonProps = {
     icon?: React.ReactNode;
     marginRight?: boolean;
     floatRight?: boolean;
+    disabled?: boolean;
     onClick?: () => void;
 };
 export declare const Button: React.FC<ButtonProps>;
