@@ -1,46 +1,17 @@
-import * as React from "react";
-import "../styles/input.sass";
-export const Input = ({ value, changeValidation, onChange, valueValidation, label, valueMask, password, placeholder, prefix, suffix, width = "medium", margined = true, bordered = true, stretchy, changeHighlight, readOnly, blurFunc, }) => {
-    const [invalid, setInvalid] = React.useState(false);
-    const [invMessage, setInvMessage] = React.useState("");
-    const [showMessage, setShowMessage] = React.useState(false);
-    const [clicked, setClicked] = React.useState(false);
-    const [blurred, setBlurred] = React.useState(false);
-    const prefixRef = React.useRef(null);
-    const suffixRef = React.useRef(null);
-    const control = React.useRef(null);
-    const onBlur = () => (setShowMessage(false), setBlurred(true), blurFunc && blurFunc());
-    const focusFunc = () => (setShowMessage(true), setClicked(true));
-    React.useLayoutEffect(() => {
-        if (control.current && prefixRef.current) {
-            control.current.style.paddingLeft = prefixRef.current.clientWidth + "px";
-        }
-        if (control.current && suffixRef.current) {
-            control.current.style.paddingRight = suffixRef.current.clientWidth + "px";
-        }
-    }, []);
-    const changeFunc = (e) => {
-        const targetValue = e.target.value;
-        if (targetValue.split("").every(char => (changeValidation ? changeValidation(char) : true))) {
-            onChange && onChange(targetValue);
-        }
-        if (valueValidation) {
-            let validation = valueValidation(targetValue);
-            setInvalid(validation.invalid);
-            setInvMessage(validation.message);
-        }
-    };
-    return (React.createElement("div", { className: "input" + (margined ? " margined" : "") + (stretchy ? " stretchy" : "") },
-        label && React.createElement("div", { className: "input-label" }, label),
-        React.createElement("div", { className: "input-container" },
-            React.createElement("input", { className: "input-control" +
-                    (invalid ? " invalid" : "") +
-                    " " +
-                    width +
-                    (stretchy ? " stretchy" : "") +
-                    (bordered ? " bordered" : "") +
-                    (changeHighlight ? " changed" : ""), onBlur: onBlur, value: (valueMask && valueMask(value || "")) || value, onFocus: focusFunc, type: password ? "password" : "text", placeholder: placeholder, ref: control, onChange: changeFunc, readOnly: readOnly }),
-            React.createElement("div", { className: "input-prefix", ref: prefixRef }, prefix),
-            React.createElement("div", { className: "input-suffix", ref: suffixRef }, suffix),
-            React.createElement("div", { className: "input-label-invalid" + (showMessage && invalid && clicked && blurred ? " active" : "") }, invMessage))));
+import { jsx as _jsx, jsxs as _jsxs } from "@emotion/react/jsx-runtime";
+const $wrapper = (override) => (Object.assign({ fontSize: 16, width: "fit-content", position: "relative" }, override));
+const $label = (override) => (Object.assign({ marginBottom: 4 }, override));
+const $flag = (visible, override) => (Object.assign(Object.assign({ position: "absolute", top: "calc(100% + 2px)", width: "100%", opacity: 0, zIndex: 0, padding: 8, transition: "all 200ms, z-index 0ms", transform: "scaleY(0)", transformOrigin: "0% 0%", border: "1px solid black" }, (visible && {
+    opacity: 1,
+    zIndex: 1,
+    transform: "scaleY(1)",
+})), override));
+const $controlWrapper = (override) => (Object.assign({ width: "100%", position: "relative" }, override));
+const $control = (override) => (Object.assign({ border: "2px solid black", padding: 8, borderRadius: 2, width: "100%", fontFamily: "Verdana", fontSize: 16, transition: "all 200ms, outline 0ms", "::placeholder": {
+        color: "gray",
+    } }, override));
+export const Input = ({ value, onChange, label, password, placeholder, readOnly, flagged, flaggedMessage, styles, textArea, }) => {
+    return (_jsxs("div", Object.assign({ css: $wrapper(styles === null || styles === void 0 ? void 0 : styles.wrapper) }, { children: [label && _jsx("div", Object.assign({ css: $label(styles === null || styles === void 0 ? void 0 : styles.label) }, { children: label }), void 0),
+            _jsxs("div", Object.assign({ css: $controlWrapper(styles === null || styles === void 0 ? void 0 : styles.controlWrapper) }, { children: [textArea ? (_jsx("textarea", { css: $control(styles === null || styles === void 0 ? void 0 : styles.control), value: value, placeholder: placeholder, onChange: e => onChange === null || onChange === void 0 ? void 0 : onChange(e.target.value), readOnly: readOnly }, void 0)) : (_jsx("input", { css: $control(styles === null || styles === void 0 ? void 0 : styles.control), value: value, type: password ? "password" : "text", placeholder: placeholder, onChange: e => onChange === null || onChange === void 0 ? void 0 : onChange(e.target.value), readOnly: readOnly }, void 0)),
+                    _jsx("div", Object.assign({ css: $flag(flagged, styles === null || styles === void 0 ? void 0 : styles.flag) }, { children: flaggedMessage }), void 0)] }), void 0)] }), void 0));
 };

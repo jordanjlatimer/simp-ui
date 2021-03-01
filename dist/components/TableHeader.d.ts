@@ -1,2 +1,7 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-export declare const TableHeader: React.FC<{}>;
+declare type TableHeaderProps = {
+    styles?: CSSObject;
+};
+export declare const TableHeader: React.FC<TableHeaderProps>;
+export {};

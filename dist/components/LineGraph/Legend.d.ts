@@ -16,7 +16,6 @@ declare type LegendProps = {
         }[];
     }[];
     width: number;
-    height: number;
 };
 export declare const Legend: React.ForwardRefExoticComponent<LegendProps & React.RefAttributes<SVGSVGElement>>;
 export {};

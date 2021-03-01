@@ -1,4 +1,4 @@
-import * as React from "react";
+import { jsx as _jsx } from "@emotion/react/jsx-runtime";
 export const Points = ({ graphHeight, graphWidth, color, fillColor, width, radius, maxY, minY, data, }) => {
     const createPath = () => {
         let d = "";
@@ -11,5 +11,5 @@ export const Points = ({ graphHeight, graphWidth, color, fillColor, width, radiu
         });
         return d;
     };
-    return React.createElement("path", { fill: fillColor, stroke: color, strokeWidth: width, d: createPath() });
+    return _jsx("path", { fill: fillColor, stroke: color, strokeWidth: width, d: createPath() }, void 0);
 };

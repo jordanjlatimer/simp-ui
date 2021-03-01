@@ -1,41 +1,20 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/table-cell.sass";
+
+const $tableCell = (override?: CSSObject): CSSObject => ({
+  border: "2px solid black",
+  padding: 10,
+  ...override
+});
 
 type TableCellProps = {
-  group?: "positive" | "negative" | "total";
-  indent?: number;
   colspan?: number;
-  header?: boolean;
-  clickable?: boolean;
-  padded?: boolean;
-  align?: "left" | "center" | "right";
   onClick?: () => void;
+  styles?: CSSObject;
 };
 
-export const TableCell: React.FC<TableCellProps> = ({
-  group,
-  indent,
-  colspan,
-  header,
-  clickable,
-  padded = true,
-  align = "left",
-  onClick,
-  children,
-}) => (
-  <td
-    className={
-      "table-cell" +
-      (group ? " " + group : "") +
-      (header ? "-header" : "") +
-      (clickable ? " clickable" : "") +
-      (" align-" + align) +
-      (padded ? " padded" : "")
-    }
-    colSpan={colspan}
-    onClick={onClick ? () => onClick() : undefined}
-    style={indent ? { paddingLeft: indent * 30 + "px" } : undefined}
-  >
+export const TableCell: React.FC<TableCellProps> = ({ colspan, onClick, children, styles }) => (
+  <td css={$tableCell(styles)} colSpan={colspan} onClick={onClick ? () => onClick() : undefined}>
     {children}
   </td>
 );

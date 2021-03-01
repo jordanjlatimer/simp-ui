@@ -1,5 +1,5 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/dropdown.sass";
 declare type option = {
     value: string;
     label: string;
@@ -9,9 +9,17 @@ declare type DropdownProps = {
     multiple?: boolean;
     placeholder?: string;
     options?: option[];
-    width?: "short" | "medium" | "long";
     disabled?: boolean;
-    value?: option[];
+    value?: option[] | option;
+    styles?: {
+        wrapper?: (disabled?: boolean) => CSSObject;
+        label?: CSSObject;
+        control?: CSSObject;
+        controlItem?: (multiple?: boolean) => CSSObject;
+        controlIcon?: (open?: boolean) => CSSObject;
+        menu?: (open?: boolean) => CSSObject;
+        menuItem?: (selected?: boolean) => CSSObject;
+    };
     onChange?: (value: {
         value: string;
         label: string;

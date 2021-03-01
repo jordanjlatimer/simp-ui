@@ -4,11 +4,14 @@
     "moduleResolution": "node",
     "lib": ["ES6", "DOM"],
     "strict": true,
-    "jsx": "react",
     "target": "ES6",
+    "jsx": "react-jsx", //ensures that jsx functions are created instead of React.createElement()
     "outDir": "dist",
-    "declaration": true
+    "declaration": true,
+    "types": ["@emotion/react/types/css-prop"],
+    "jsxImportSource": "@emotion/react", //ensures that emotion is the source of transformation of jsx syntaxt to jsx functions
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
-  "exclude": ["node_modules"],
   "include": ["src"]
 }

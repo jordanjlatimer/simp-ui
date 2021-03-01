@@ -1,5 +1,4 @@
 import * as React from "react";
-import "../../styles/line-graph.sass";
 declare type LineGraphProps = {
     borderColor?: string;
     borderWidth?: number;

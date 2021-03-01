@@ -1,11 +1,16 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/accordion.sass";
 declare type AccordionProps = {
-    items: {
+    items?: {
         label: string;
         contents: string;
     }[];
     multiple?: boolean;
+    styles?: {
+        control?: CSSObject;
+        controlIcon?: (open?: boolean) => CSSObject;
+        contents?: (open?: boolean) => CSSObject;
+    };
 };
 export declare const Accordion: React.FC<AccordionProps>;
 export {};

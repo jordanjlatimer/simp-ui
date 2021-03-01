@@ -1,12 +1,10 @@
 import * as React from "react";
-import "../styles/button.sass";
+import { CSSObject } from "@emotion/react";
 declare type ButtonProps = {
     text: string;
-    color?: "green" | "red" | "blue";
     icon?: React.ReactNode;
-    marginRight?: boolean;
-    floatRight?: boolean;
     disabled?: boolean;
+    styles?: (disabled?: boolean) => CSSObject;
     onClick?: () => void;
 };
 export declare const Button: React.FC<ButtonProps>;

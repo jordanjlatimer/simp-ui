@@ -1,11 +1,8 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/table-row.sass";
 
 type TableRowProps = {
-  bold?: boolean;
-  group?: "total";
+  styles?: CSSObject;
 };
 
-export const TableRow: React.FC<TableRowProps> = ({ bold, group, children }) => (
-  <tr className={"table-row" + (bold ? " bold" : "") + (group ? " " + group : "")}>{children}</tr>
-);
+export const TableRow: React.FC<TableRowProps> = ({ styles, children }) => <tr css={styles}>{children}</tr>;

@@ -1,14 +1,9 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/table-cell.sass";
 declare type TableCellProps = {
-    group?: "positive" | "negative" | "total";
-    indent?: number;
     colspan?: number;
-    header?: boolean;
-    clickable?: boolean;
-    padded?: boolean;
-    align?: "left" | "center" | "right";
     onClick?: () => void;
+    styles?: CSSObject;
 };
 export declare const TableCell: React.FC<TableCellProps>;
 export {};

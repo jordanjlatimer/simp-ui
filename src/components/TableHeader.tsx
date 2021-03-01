@@ -1,7 +1,8 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
 
-export const TableHeader: React.FC<{}> = ({ children }) => (
-  <thead>
-    <tr>{children}</tr>
-  </thead>
-);
+type TableHeaderProps = {
+  styles?: CSSObject;
+};
+
+export const TableHeader: React.FC<TableHeaderProps> = ({ styles, children }) => <thead css={styles}>{children}</thead>;

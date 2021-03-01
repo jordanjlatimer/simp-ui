@@ -1,4 +1,13 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/table.sass";
 
-export const Table: React.FC<{}> = ({ children }) => <table className="table">{children}</table>;
+const $table = (override?: CSSObject): CSSObject => ({
+  border: "4px solid black",
+  ...override,
+});
+
+type TableProps = {
+  styles?: CSSObject;
+};
+
+export const Table: React.FC<TableProps> = ({ styles, children }) => <table css={$table(styles)}>{children}</table>;

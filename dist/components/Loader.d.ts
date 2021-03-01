@@ -1,8 +1,10 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/loader.sass";
 declare type LoaderProps = {
-    text?: string;
-    dimBack?: boolean;
+    styles?: {
+        wrapper?: CSSObject;
+        circle?: CSSObject;
+    };
 };
 export declare const Loader: React.FC<LoaderProps>;
 export {};

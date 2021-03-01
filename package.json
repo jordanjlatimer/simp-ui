@@ -5,8 +5,8 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -r ./dist && npm run format && tsc && npm run build-styles",
-    "build-styles": "cp -r ./src/styles ./dist/styles",
+    "build": "rm -r ./dist && npm run format && tsc",
+    "build-watch": "rm -r ./dist && npm run format && tsc --watch",
     "format": "prettier --write ."
   },
   "repository": {
@@ -35,7 +35,9 @@
   ],
   "prettier": {
     "printWidth": 120,
-    "quoteProps": "consistent",
     "arrowParens": "avoid"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.1.5"
   }
 }

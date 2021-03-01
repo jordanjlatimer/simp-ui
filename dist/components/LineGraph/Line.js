@@ -1,4 +1,4 @@
-import * as React from "react";
+import { jsx as _jsx } from "@emotion/react/jsx-runtime";
 export const Line = ({ graphHeight, graphWidth, color, width, maxY, minY, data }) => {
     const createPath = () => {
         let d = "M0 " + ((graphHeight * (maxY - data[0].y)) / (maxY - minY)).toFixed(2);
@@ -15,5 +15,5 @@ export const Line = ({ graphHeight, graphWidth, color, width, maxY, minY, data }
         });
         return d;
     };
-    return React.createElement("path", { fill: "transparent", stroke: color, strokeWidth: width, d: createPath() });
+    return _jsx("path", { fill: "transparent", stroke: color, strokeWidth: width, d: createPath() }, void 0);
 };

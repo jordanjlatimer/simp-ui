@@ -1,8 +1,15 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/divider.sass";
+
+const $divider = (override?: CSSObject): CSSObject => ({
+  height: 2,
+  border: 0,
+  margin: "16px 0px",
+  ...override,
+});
 
 type DividerProps = {
-  margin?: "small" | "medium" | "large";
+  styles?: CSSObject;
 };
 
-export const Divider: React.FC<DividerProps> = ({ margin = "medium" }) => <hr className={"divider" + " " + margin} />;
+export const Divider: React.FC<DividerProps> = ({ styles }) => <hr css={$divider(styles)} />;

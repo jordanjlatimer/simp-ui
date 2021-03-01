@@ -1,6 +1,6 @@
 import { CSSObject } from "@emotion/react";
 import * as React from "react";
-declare type RadioInputProps = {
+declare type SegmentedControlProps = {
     label?: string;
     options?: {
         label: string;
@@ -11,11 +11,8 @@ declare type RadioInputProps = {
         wrapper?: CSSObject;
         label?: CSSObject;
         optionsWrapper?: CSSObject;
-        option?: CSSObject;
-        optionLabel?: CSSObject;
-        controlOuter?: CSSObject;
-        controlInner?: (active?: boolean) => CSSObject;
+        option?: (active?: boolean) => CSSObject;
     };
 };
-export declare const RadioInput: React.FC<RadioInputProps>;
+export declare const SegmentedControl: React.FC<SegmentedControlProps>;
 export {};

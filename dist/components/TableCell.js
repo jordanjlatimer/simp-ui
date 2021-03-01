@@ -1,8 +1,3 @@
-import * as React from "react";
-import "../styles/table-cell.sass";
-export const TableCell = ({ group, indent, colspan, header, clickable, padded = true, align = "left", onClick, children, }) => (React.createElement("td", { className: "table-cell" +
-        (group ? " " + group : "") +
-        (header ? "-header" : "") +
-        (clickable ? " clickable" : "") +
-        (" align-" + align) +
-        (padded ? " padded" : ""), colSpan: colspan, onClick: onClick ? () => onClick() : undefined, style: indent ? { paddingLeft: indent * 30 + "px" } : undefined }, children));
+import { jsx as _jsx } from "@emotion/react/jsx-runtime";
+const $tableCell = (override) => (Object.assign({ border: "2px solid black", padding: 10 }, override));
+export const TableCell = ({ colspan, onClick, children, styles }) => (_jsx("td", Object.assign({ css: $tableCell(styles), colSpan: colspan, onClick: onClick ? () => onClick() : undefined }, { children: children }), void 0));

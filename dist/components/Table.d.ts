@@ -1,3 +1,7 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/table.sass";
-export declare const Table: React.FC<{}>;
+declare type TableProps = {
+    styles?: CSSObject;
+};
+export declare const Table: React.FC<TableProps>;
+export {};

@@ -7,7 +7,6 @@ import { Title } from "./Title";
 import { YAxis } from "./YAxis";
 import { Legend } from "./Legend";
 import { XAxis } from "./XAxis";
-import "../../styles/line-graph.sass";
 
 type LineGraphProps = {
   borderColor?: string;
@@ -174,14 +173,12 @@ export const LineGraph: React.FC<LineGraphProps> = ({
               x={yAxWidth + graphDim.width}
               y={titleHeight}
               width={legDim.width}
-              height={legDim.height}
               lines={lines}
             />
           ) : null}
           <XAxis
             x={0}
             y={titleHeight + graphDim.height}
-            height={xAxHeight}
             width={graphDim.width}
             yAxisWidth={yAxWidth}
             xTicks={xTicks}

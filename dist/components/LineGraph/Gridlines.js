@@ -1,4 +1,4 @@
-import * as React from "react";
+import { jsx as _jsx } from "@emotion/react/jsx-runtime";
 export const Gridlines = ({ graphHeight, graphWidth, yLines, xLines, color, width, dash, }) => {
     const createPath = () => {
         const hSpacing = graphWidth / xLines;
@@ -12,5 +12,5 @@ export const Gridlines = ({ graphHeight, graphWidth, yLines, xLines, color, widt
         }
         return d;
     };
-    return React.createElement("path", { fill: "transparent", stroke: color, strokeWidth: width, strokeDasharray: dash, d: createPath() });
+    return _jsx("path", { fill: "transparent", stroke: color, strokeWidth: width, strokeDasharray: dash, d: createPath() }, void 0);
 };

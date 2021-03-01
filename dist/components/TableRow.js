@@ -1,3 +1,2 @@
-import * as React from "react";
-import "../styles/table-row.sass";
-export const TableRow = ({ bold, group, children }) => (React.createElement("tr", { className: "table-row" + (bold ? " bold" : "") + (group ? " " + group : "") }, children));
+import { jsx as _jsx } from "@emotion/react/jsx-runtime";
+export const TableRow = ({ styles, children }) => _jsx("tr", Object.assign({ css: styles }, { children: children }), void 0);

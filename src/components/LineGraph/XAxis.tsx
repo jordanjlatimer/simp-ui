@@ -5,7 +5,6 @@ type XAxisProps = {
   y: number;
   xTicks: number;
   width: number;
-  height: number;
   tickLabels: (number | string)[];
   title?: string;
   tickColor: string;
@@ -14,7 +13,7 @@ type XAxisProps = {
 };
 
 export const XAxis = React.forwardRef<SVGSVGElement, XAxisProps>(
-  ({ x, y, xTicks, width, height, tickLabels, title, tickColor, tickWidth, yAxisWidth }, ref) => {
+  ({ x, y, xTicks, width, tickLabels, title, tickColor, tickWidth, yAxisWidth }, ref) => {
     return (
       <svg x={x} y={y} ref={ref} className="line-graph-x-axis">
         {tickLabels.map((tick, i) => {

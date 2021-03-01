@@ -4,7 +4,6 @@ declare type XAxisProps = {
     y: number;
     xTicks: number;
     width: number;
-    height: number;
     tickLabels: (number | string)[];
     title?: string;
     tickColor: string;

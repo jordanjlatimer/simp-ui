@@ -1,7 +1,7 @@
+import { CSSObject } from "@emotion/react";
 import * as React from "react";
-import "../styles/divider.sass";
 declare type DividerProps = {
-    margin?: "small" | "medium" | "large";
+    styles?: CSSObject;
 };
 export declare const Divider: React.FC<DividerProps>;
 export {};

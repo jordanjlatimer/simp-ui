@@ -26,6 +26,7 @@ export const YAxis = React.forwardRef<SVGSVGElement, YAxisProps>(
               x: width - 18,
               y: titleHeight + (i * height) / (yTicks + 1) + (i === tickArray.length - 1 ? -1.05 : i === 0 ? 1.05 : 0),
               value: Math.floor(maxY - i * ((maxY - minY) / (yTicks + 1))),
+              j: j
             };
           })
           .map((tick, i) => {
